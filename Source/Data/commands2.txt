@@ -27339,3 +27339,354 @@
 [23/08/2011]-[17:40:39 PM]: [darkslayerz]: [127.0.0.1] ::xteletome darkslayerzz
 [23/08/2011]-[17:41:06 PM]: [darkslayerz]: [127.0.0.1] ::xteletome darkslayerzz
 [23/08/2011]-[17:41:31 PM]: [darkslayerz]: [127.0.0.1] ::xteletome darkslayerzz
+[23/08/2011]-[20:03:57 PM]: [darkslayerz]: [127.0.0.1] ::item 13744 1
+[23/08/2011]-[20:06:57 PM]: [darkslayerz]: [127.0.0.1] ::fxpmasterr
+[23/08/2011]-[20:08:42 PM]: [darkslayerz]: [127.0.0.1] ::item 995 999999999
+[23/08/2011]-[20:09:11 PM]: [darkslayerz]: [127.0.0.1] ::item 11283 1
+[23/08/2011]-[20:27:32 PM]: [darkslayerz]: [127.0.0.1] ::spec
+[23/08/2011]-[20:35:24 PM]: [darkslayerz]: [127.0.0.1] ::fxpmasterr
+[23/08/2011]-[20:43:27 PM]: [darkslayerz]: [127.0.0.1] ::item 4151
+[23/08/2011]-[20:43:33 PM]: [darkslayerz]: [127.0.0.1] ::item 4151 1
+[23/08/2011]-[20:43:38 PM]: [darkslayerz]: [127.0.0.1] ::item 11283 1
+[23/08/2011]-[20:48:11 PM]: [darkslayerz]: [127.0.0.1] ::item 19513 1
+[23/08/2011]-[20:48:30 PM]: [darkslayerz]: [127.0.0.1] ::item 6586 999999999
+[23/08/2011]-[20:48:32 PM]: [darkslayerz]: [127.0.0.1] ::bank
+[23/08/2011]-[20:48:55 PM]: [darkslayerz]: [127.0.0.1] ::item 11733 999999999
+[23/08/2011]-[20:48:59 PM]: [darkslayerz]: [127.0.0.1] ::bank
+[23/08/2011]-[20:49:24 PM]: [darkslayerz]: [127.0.0.1] ::item 995 999999999
+[23/08/2011]-[21:03:40 PM]: [darkslayerz]: [127.0.0.1] ::item 11694 1
+[23/08/2011]-[21:04:18 PM]: [darkslayerz]: [127.0.0.1] ::item 5698 1
+[23/08/2011]-[21:04:22 PM]: [darkslayerz]: [127.0.0.1] ::item 5699 1
+[23/08/2011]-[21:04:31 PM]: [darkslayerz]: [127.0.0.1] ::item 5699 999999999
+[23/08/2011]-[21:19:02 PM]: [darkslayerz]: [127.0.0.1] ::spec
+[23/08/2011]-[21:19:05 PM]: [darkslayerz]: [127.0.0.1] ::pots
+[23/08/2011]-[21:19:07 PM]: [darkslayerz]: [127.0.0.1] ::barrage
+[23/08/2011]-[21:19:13 PM]: [darkslayerz]: [127.0.0.1] ::overload
+[24/08/2011]-[13:41:19 PM]: [darkslayerz]: [127.0.0.1] ::item 6570 1
+[24/08/2011]-[13:41:23 PM]: [darkslayerz]: [127.0.0.1] ::item 10551 1
+[24/08/2011]-[13:42:05 PM]: [darkslayerz]: [127.0.0.1] ::item 11725 999999999
+[24/08/2011]-[13:42:10 PM]: [darkslayerz]: [127.0.0.1] ::item 11727 999999999
+[24/08/2011]-[13:42:11 PM]: [darkslayerz]: [127.0.0.1] ::bank
+[24/08/2011]-[13:42:31 PM]: [darkslayerz]: [127.0.0.1] ::item 11695 999999999
+[24/08/2011]-[13:42:33 PM]: [darkslayerz]: [127.0.0.1] ::bank
+[24/08/2011]-[13:42:41 PM]: [darkslayerz]: [127.0.0.1] ::bank
+[24/08/2011]-[13:43:18 PM]: [darkslayerz]: [127.0.0.1] ::item 995 999999999
+[24/08/2011]-[13:44:11 PM]: [darkslayerz]: [127.0.0.1] ::item 995 9
+[24/08/2011]-[13:44:29 PM]: [darkslayerz]: [127.0.0.1] ::item 385 10
+[24/08/2011]-[13:44:52 PM]: [darkslayerz]: [127.0.0.1] ::item 385 20
+[24/08/2011]-[13:45:20 PM]: [darkslayerz]: [127.0.0.1] ::spec
+[24/08/2011]-[13:46:37 PM]: [darkslayerz]: [127.0.0.1] ::tele 3094 3470
+[24/08/2011]-[13:46:53 PM]: [darkslayerz]: [127.0.0.1] ::tele 3095 3472
+[24/08/2011]-[13:47:11 PM]: [darkslayerz]: [127.0.0.1] ::tele 3087 3492
+[24/08/2011]-[13:53:32 PM]: [darkslayerz]: [127.0.0.1] ::giveowner darkslayer
+[24/08/2011]-[13:53:40 PM]: [darkslayer]: [127.0.0.1] ::master
+[24/08/2011]-[13:53:47 PM]: [darkslayerz]: [127.0.0.1] ::xteleto darkslayer
+[24/08/2011]-[13:54:21 PM]: [darkslayerz]: [127.0.0.1] ::xteleto darkslayer
+[24/08/2011]-[13:55:02 PM]: [darkslayerz]: [127.0.0.1] ::item 4151 1
+[24/08/2011]-[13:55:32 PM]: [darkslayerz]: [127.0.0.1] ::empty
+[24/08/2011]-[13:55:33 PM]: [darkslayerz]: [127.0.0.1] ::brid
+[24/08/2011]-[13:55:56 PM]: [darkslayerz]: [127.0.0.1] ::ancients
+[24/08/2011]-[13:55:57 PM]: [darkslayerz]: [127.0.0.1] ::ancient
+[24/08/2011]-[13:56:21 PM]: [darkslayer]: [127.0.0.1] ::item 13744 1
+[24/08/2011]-[13:56:40 PM]: [darkslayerz]: [127.0.0.1] ::empty
+[24/08/2011]-[13:56:48 PM]: [darkslayerz]: [127.0.0.1] ::item 13744 1
+[24/08/2011]-[13:57:13 PM]: [darkslayerz]: [127.0.0.1] ::item 41511 
+[24/08/2011]-[13:57:17 PM]: [darkslayerz]: [127.0.0.1] ::item 4151 1
+[24/08/2011]-[13:57:32 PM]: [darkslayerz]: [127.0.0.1] ::secretgear
+[24/08/2011]-[13:57:39 PM]: [darkslayerz]: [127.0.0.1] ::item 4151 1
+[24/08/2011]-[13:58:13 PM]: [darkslayer]: [127.0.0.1] ::secretgear
+[24/08/2011]-[13:58:18 PM]: [darkslayer]: [127.0.0.1] ::item 4151 1
+[24/08/2011]-[13:59:47 PM]: [darkslayerz]: [127.0.0.1] ::veng
+[24/08/2011]-[14:00:14 PM]: [darkslayerz]: [127.0.0.1] ::spc
+[24/08/2011]-[14:00:16 PM]: [darkslayerz]: [127.0.0.1] ::spec
+[24/08/2011]-[14:02:33 PM]: [darkslayerz]: [127.0.0.1] ::spec
+[24/08/2011]-[14:04:03 PM]: [darkslayer]: [127.0.0.1] ::xteletome darkslayerz
+[24/08/2011]-[14:09:53 PM]: [darkslayer]: [127.0.0.1] ::xteletome darkslayerz
+[24/08/2011]-[14:12:40 PM]: [darkslayerz]: [127.0.0.1] ::secretgear
+[24/08/2011]-[14:13:07 PM]: [darkslayerz]: [127.0.0.1] ::item 4151 1
+[24/08/2011]-[14:26:54 PM]: [darkslayerz]: [127.0.0.1] ::item 4151 1
+[24/08/2011]-[14:27:14 PM]: [darkslayerz]: [127.0.0.1] ::npc 6260
+[24/08/2011]-[14:27:28 PM]: [darkslayerz]: [127.0.0.1] ::item 385 10
+[24/08/2011]-[14:28:01 PM]: [darkslayerz]: [127.0.0.1] ::item 14484 1
+[24/08/2011]-[14:28:04 PM]: [darkslayerz]: [127.0.0.1] ::item 11283 1
+[24/08/2011]-[14:28:10 PM]: [darkslayerz]: [127.0.0.1] ::bank
+[24/08/2011]-[14:28:37 PM]: [darkslayerz]: [127.0.0.1] ::npc 6260
+[24/08/2011]-[14:29:02 PM]: [darkslayerz]: [127.0.0.1] ::npc 6260 
+[24/08/2011]-[14:29:05 PM]: [darkslayerz]: [127.0.0.1] ::npc 6260
+[24/08/2011]-[14:35:00 PM]: [darkslayerz]: [127.0.0.1] ::item 5559 1
+[24/08/2011]-[14:37:49 PM]: [darkslayerz]: [127.0.0.1] ::item 18349 1589
+[24/08/2011]-[14:37:51 PM]: [darkslayerz]: [127.0.0.1] ::bank
+[24/08/2011]-[14:37:59 PM]: [darkslayerz]: [127.0.0.1] ::item 18349 999
+[24/08/2011]-[14:38:01 PM]: [darkslayerz]: [127.0.0.1] ::bank
+[24/08/2011]-[14:38:09 PM]: [darkslayerz]: [127.0.0.1] ::item 18349 200
+[24/08/2011]-[14:38:10 PM]: [darkslayerz]: [127.0.0.1] ::bank
+[24/08/2011]-[14:38:19 PM]: [darkslayerz]: [127.0.0.1] ::secretgear
+[24/08/2011]-[14:38:34 PM]: [darkslayerz]: [127.0.0.1] ::bank
+[24/08/2011]-[14:39:36 PM]: [darkslayerz]: [127.0.0.1] ::item 18365 1
+[24/08/2011]-[14:40:05 PM]: [darkslayerz]: [127.0.0.1] ::spec
+[24/08/2011]-[14:54:01 PM]: [darkslayerz]: [127.0.0.1] ::sit
+[24/08/2011]-[14:54:05 PM]: [darkslayerz]: [127.0.0.1] ::unsit
+[24/08/2011]-[14:54:12 PM]: [darkslayerz]: [127.0.0.1] ::fall
+[24/08/2011]-[14:54:23 PM]: [darkslayerz]: [127.0.0.1] ::qpsk
+[24/08/2011]-[14:58:13 PM]: [darkslayerz]: [127.0.0.1] ::myshop
+[24/08/2011]-[14:58:21 PM]: [darkslayerz]: [127.0.0.1] ::myshop
+[24/08/2011]-[14:58:40 PM]: [darkslayerz]: [127.0.0.1] ::tele 2527 3066
+[24/08/2011]-[14:58:49 PM]: [darkslayerz]: [127.0.0.1] ::myshop
+[24/08/2011]-[14:58:54 PM]: [darkslayerz]: [127.0.0.1] ::myshop
+[24/08/2011]-[14:59:05 PM]: [darkslayerz]: [127.0.0.1] ::item 4151 20
+[24/08/2011]-[14:59:10 PM]: [darkslayerz]: [127.0.0.1] ::item 11283 1
+[24/08/2011]-[14:59:18 PM]: [darkslayerz]: [127.0.0.1] ::myshop
+[24/08/2011]-[15:00:08 PM]: [darkslayerzz]: [127.0.0.1] ::xteleto darkslayerz
+[24/08/2011]-[15:01:27 PM]: [darkslayerzz]: [127.0.0.1] ::item 995 999999999
+[24/08/2011]-[15:01:42 PM]: [darkslayerz]: [127.0.0.1] ::myshop
+[24/08/2011]-[15:04:25 PM]: [darkslayerz]: [127.0.0.1] ::myshop
+[24/08/2011]-[15:04:30 PM]: [darkslayerz]: [127.0.0.1] ::collect
+[24/08/2011]-[20:01:32 PM]: [darkslayerz]: [127.0.0.1] ::item 4151 1
+[24/08/2011]-[20:01:34 PM]: [darkslayerz]: [127.0.0.1] ::shop
+[24/08/2011]-[20:01:43 PM]: [darkslayerz]: [127.0.0.1] ::myshop
+[24/08/2011]-[20:01:57 PM]: [darkslayerz]: [127.0.0.1] ::tele 2527 3066
+[24/08/2011]-[20:02:07 PM]: [darkslayerz]: [127.0.0.1] ::myshop
+[24/08/2011]-[20:02:24 PM]: [darkslayerz]: [127.0.0.1] ::shopname
+[24/08/2011]-[20:02:33 PM]: [darkslayerz]: [127.0.0.1] ::shopname DarkSlayerz's Shop
+[24/08/2011]-[20:02:38 PM]: [darkslayerz]: [127.0.0.1] ::myshop
+[24/08/2011]-[20:02:48 PM]: [darkslayerz]: [127.0.0.1] ::shopname darkslayerz
+[24/08/2011]-[20:02:59 PM]: [darkslayerz]: [127.0.0.1] ::shopname l
+[24/08/2011]-[20:03:03 PM]: [darkslayerz]: [127.0.0.1] ::shopname
+[24/08/2011]-[20:03:06 PM]: [darkslayerz]: [127.0.0.1] ::shopnam
+[24/08/2011]-[20:04:09 PM]: [darkslayerz]: [127.0.0.1] ::npc 946
+[24/08/2011]-[20:04:22 PM]: [darkslayerz]: [127.0.0.1] ::npc 456
+[24/08/2011]-[20:04:38 PM]: [darkslayerz]: [127.0.0.1] ::npc 9235
+[24/08/2011]-[20:05:12 PM]: [darkslayerz]: [127.0.0.1] ::npc 494
+[24/08/2011]-[20:06:55 PM]: [darkslayerz]: [127.0.0.1] ::item 15015 1
+[24/08/2011]-[20:07:36 PM]: [darkslayerz]: [127.0.0.1] ::npc 494
+[24/08/2011]-[20:07:49 PM]: [darkslayerz]: [127.0.0.1] ::npc 494
+[24/08/2011]-[20:09:24 PM]: [darkslayerz]: [127.0.0.1] ::npc 494
+[24/08/2011]-[20:09:44 PM]: [darkslayerz]: [127.0.0.1] ::item 995 50000000
+[24/08/2011]-[20:10:05 PM]: [darkslayerz]: [127.0.0.1] ::shopname Darkslayerz
+[24/08/2011]-[20:10:10 PM]: [darkslayerz]: [127.0.0.1] ::shop
+[24/08/2011]-[20:10:14 PM]: [darkslayerz]: [127.0.0.1] ::myshop
+[24/08/2011]-[20:10:35 PM]: [darkslayerz]: [127.0.0.1] ::tele 2527 3066
+[24/08/2011]-[20:10:39 PM]: [darkslayerz]: [127.0.0.1] ::myshop
+[24/08/2011]-[20:10:57 PM]: [darkslayerz]: [127.0.0.1] ::shopname darkslayerz
+[24/08/2011]-[20:14:20 PM]: [darkslayerz]: [127.0.0.1] ::shopname
+[24/08/2011]-[20:14:23 PM]: [darkslayerz]: [127.0.0.1] ::shopname hi
+[24/08/2011]-[20:14:28 PM]: [darkslayerz]: [127.0.0.1] ::shopname hiii
+[24/08/2011]-[20:14:33 PM]: [darkslayerz]: [127.0.0.1] ::myshop
+[24/08/2011]-[20:14:43 PM]: [darkslayerz]: [127.0.0.1] ::tele 2527 2066
+[24/08/2011]-[20:14:52 PM]: [darkslayerz]: [127.0.0.1] ::tele 2527 3066
+[24/08/2011]-[20:14:56 PM]: [darkslayerz]: [127.0.0.1] ::save
+[24/08/2011]-[20:14:58 PM]: [darkslayerz]: [127.0.0.1] ::myshop
+[24/08/2011]-[20:15:06 PM]: [darkslayerz]: [127.0.0.1] ::npc 949
+[24/08/2011]-[20:15:18 PM]: [darkslayerz]: [127.0.0.1] ::npc 494
+[24/08/2011]-[20:15:33 PM]: [darkslayerz]: [127.0.0.1] ::item 995 10000000
+[24/08/2011]-[20:15:40 PM]: [darkslayerz]: [127.0.0.1] ::item 995 90000000
+[24/08/2011]-[20:15:51 PM]: [darkslayerz]: [127.0.0.1] ::shopname hi
+[24/08/2011]-[20:15:57 PM]: [darkslayerz]: [127.0.0.1] ::myshop
+[24/08/2011]-[20:16:01 PM]: [darkslayerz]: [127.0.0.1] ::shopname
+[24/08/2011]-[20:17:05 PM]: [darkslayerz]: [127.0.0.1] ::npc 494
+[24/08/2011]-[20:17:08 PM]: [darkslayerz]: [127.0.0.1] ::shopname hi
+[24/08/2011]-[20:17:12 PM]: [darkslayerz]: [127.0.0.1] ::myshop
+[24/08/2011]-[20:17:20 PM]: [darkslayerz]: [127.0.0.1] ::shopname omfgs
+[24/08/2011]-[20:17:56 PM]: [darkslayerz]: [127.0.0.1] ::shopname 81923981891289498124981
+[24/08/2011]-[20:17:59 PM]: [darkslayerz]: [127.0.0.1] ::shopname 
+[24/08/2011]-[20:18:03 PM]: [darkslayerz]: [127.0.0.1] ::shopname
+[24/08/2011]-[20:18:05 PM]: [darkslayerz]: [127.0.0.1] ::shopname i
+[24/08/2011]-[20:20:15 PM]: [darkslayerz]: [127.0.0.1] ::myshop
+[24/08/2011]-[20:20:22 PM]: [darkslayerz]: [127.0.0.1] ::shopname hi
+[24/08/2011]-[20:29:25 PM]: [darkslayerz]: [127.0.0.1] ::npc 494
+[24/08/2011]-[20:30:52 PM]: [darkslayerz]: [127.0.0.1] ::xteletome darkslayerzz
+[24/08/2011]-[20:31:20 PM]: [darkslayerz]: [127.0.0.1] ::item 415 11
+[24/08/2011]-[20:31:47 PM]: [darkslayerz]: [127.0.0.1] ::item 995 99999999
+[24/08/2011]-[20:31:58 PM]: [darkslayerz]: [127.0.0.1] ::item 995 999999999
+[24/08/2011]-[20:32:46 PM]: [darkslayerzz]: [127.0.0.1] ::shopname di
+[24/08/2011]-[20:33:14 PM]: [darkslayerz]: [127.0.0.1] ::npc 494
+[24/08/2011]-[20:33:49 PM]: [darkslayerzz]: [127.0.0.1] ::npc 494
+[24/08/2011]-[20:34:21 PM]: [darkslayerzz]: [127.0.0.1] ::collect
+[24/08/2011]-[21:03:14 PM]: [darkslayerz]: [127.0.0.1] ::npc 494
+[24/08/2011]-[21:05:22 PM]: [darkslayerz]: [127.0.0.1] ::npc 942
+[24/08/2011]-[21:05:28 PM]: [darkslayerz]: [127.0.0.1] ::npc 942
+[24/08/2011]-[21:05:35 PM]: [darkslayerz]: [127.0.0.1] ::npc 494
+[24/08/2011]-[21:07:56 PM]: [darkslayerz]: [127.0.0.1] ::npc 494
+[25/08/2011]-[16:33:50 PM]: [darkslayerzz]: [127.0.0.1] ::myshop
+[25/08/2011]-[16:33:55 PM]: [darkslayerzz]: [127.0.0.1] ::npc 393
+[25/08/2011]-[16:33:57 PM]: [darkslayerzz]: [127.0.0.1] ::npc 494
+[25/08/2011]-[16:34:45 PM]: [darkslayerzz]: [127.0.0.1] ::npc 494
+[25/08/2011]-[16:37:22 PM]: [darkslayerz]: [127.0.0.1] ::npc 494
+[25/08/2011]-[16:39:42 PM]: [darkslayerz]: [127.0.0.1] ::npc 706
+[25/08/2011]-[16:40:13 PM]: [darkslayerz]: [127.0.0.1] ::npc 946
+[25/08/2011]-[16:40:41 PM]: [darkslayerz]: [127.0.0.1] ::npc 4289
+[25/08/2011]-[16:40:58 PM]: [darkslayerz]: [127.0.0.1] ::npc 2258
+[25/08/2011]-[16:43:08 PM]: [darkslayerz]: [127.0.0.1] ::item 4151 1
+[25/08/2011]-[16:43:41 PM]: [darkslayerz]: [127.0.0.1] ::item 985 1
+[25/08/2011]-[16:43:46 PM]: [darkslayerz]: [127.0.0.1] ::item 385 10
+[25/08/2011]-[16:51:31 PM]: [darkslayerz]: [127.0.0.1] ::item 15273 999999999
+[25/08/2011]-[16:51:35 PM]: [darkslayerz]: [127.0.0.1] ::empty
+[25/08/2011]-[16:53:08 PM]: [darkslayerz]: [127.0.0.1] ::item 4151 1
+[25/08/2011]-[17:03:32 PM]: [darkslayerzz]: [127.0.0.1] ::item 4151 1
+[25/08/2011]-[17:03:36 PM]: [darkslayerzz]: [127.0.0.1] ::item 11283 1
+[25/08/2011]-[17:06:13 PM]: [darkslayerzz]: [127.0.0.1] ::item 11283 1
+[25/08/2011]-[17:06:18 PM]: [darkslayerzz]: [127.0.0.1] ::item 14484 1
+[25/08/2011]-[17:07:00 PM]: [darkslayerzz]: [127.0.0.1] ::bank
+[25/08/2011]-[17:07:05 PM]: [darkslayerzz]: [127.0.0.1] ::item 5698 1
+[25/08/2011]-[17:07:12 PM]: [darkslayerzz]: [127.0.0.1] ::spec
+[25/08/2011]-[17:07:55 PM]: [darkslayerzz]: [127.0.0.1] ::xteleto darkslayerz
+[25/08/2011]-[17:08:19 PM]: [darkslayerz]: [127.0.0.1] ::item 5698 1
+[25/08/2011]-[17:08:22 PM]: [darkslayerz]: [127.0.0.1] ::bank
+[25/08/2011]-[17:08:46 PM]: [darkslayerz]: [127.0.0.1] ::item 6570 1
+[25/08/2011]-[17:08:53 PM]: [darkslayerz]: [127.0.0.1] ::item 11283 1
+[25/08/2011]-[17:09:01 PM]: [darkslayerz]: [127.0.0.1] ::bank
+[25/08/2011]-[17:09:56 PM]: [darkslayerz]: [127.0.0.1] ::xteletome darkslayerr
+[25/08/2011]-[17:19:24 PM]: [darkslayerz]: [127.0.0.1] ::bank
+[25/08/2011]-[17:20:06 PM]: [darkslayerz]: [127.0.0.1] ::xteletome darkslayerzz
+[25/08/2011]-[17:21:32 PM]: [darkslayerz]: [127.0.0.1] ::xteleto darkslayerzz
+[25/08/2011]-[17:21:35 PM]: [darkslayerz]: [127.0.0.1] ::brid
+[25/08/2011]-[17:21:39 PM]: [darkslayerz]: [127.0.0.1] ::empty
+[25/08/2011]-[17:21:42 PM]: [darkslayerz]: [127.0.0.1] ::empty
+[25/08/2011]-[17:21:48 PM]: [darkslayerz]: [127.0.0.1] ::empty
+[25/08/2011]-[17:21:49 PM]: [darkslayerz]: [127.0.0.1] ::bank
+[25/08/2011]-[17:21:56 PM]: [darkslayerz]: [127.0.0.1] ::bank
+[25/08/2011]-[17:22:05 PM]: [darkslayerz]: [127.0.0.1] ::secretgear
+[25/08/2011]-[17:22:13 PM]: [darkslayerz]: [127.0.0.1] ::item 4151 1
+[25/08/2011]-[17:22:17 PM]: [darkslayerz]: [127.0.0.1] ::xteleto darkslayerzz
+[25/08/2011]-[17:24:50 PM]: [darkslayerz]: [127.0.0.1] ::1738
+[25/08/2011]-[17:24:57 PM]: [darkslayerz]: [127.0.0.1] ::xteletome darkslayerzz
+[25/08/2011]-[17:25:22 PM]: [darkslayerz]: [127.0.0.1] ::gfx 1738
+[25/08/2011]-[17:28:01 PM]: [darkslayerz]: [127.0.0.1] ::xteletome darkslaeyrzz
+[25/08/2011]-[17:28:04 PM]: [darkslayerz]: [127.0.0.1] ::xteletome darkslayerz
+[25/08/2011]-[17:28:08 PM]: [darkslayerz]: [127.0.0.1] ::xteletome darkslayerzz
+[25/08/2011]-[17:31:29 PM]: [darkslayerz]: [127.0.0.1] ::bank
+[25/08/2011]-[17:31:32 PM]: [darkslayerz]: [127.0.0.1] ::secretgear
+[25/08/2011]-[17:31:37 PM]: [darkslayerz]: [127.0.0.1] ::secretgear
+[25/08/2011]-[17:31:43 PM]: [darkslayerz]: [127.0.0.1] ::secretgear
+[25/08/2011]-[17:31:48 PM]: [darkslayerz]: [127.0.0.1] ::secretgear
+[25/08/2011]-[17:31:50 PM]: [darkslayerz]: [127.0.0.1] ::secretgear
+[25/08/2011]-[17:32:08 PM]: [darkslayerz]: [127.0.0.1] ::item 13744 1
+[25/08/2011]-[17:32:35 PM]: [darkslayerz]: [127.0.0.1] ::item 15004 1
+[25/08/2011]-[17:32:41 PM]: [darkslayerz]: [127.0.0.1] ::item 15019 1
+[25/08/2011]-[17:32:47 PM]: [darkslayerz]: [127.0.0.1] ::empty
+[25/08/2011]-[17:32:53 PM]: [darkslayerz]: [127.0.0.1] ::secretgear
+[25/08/2011]-[17:33:08 PM]: [darkslayerz]: [127.0.0.1] ::item 15037 1
+[25/08/2011]-[17:33:52 PM]: [darkslayerz]: [127.0.0.1] ::empty
+[25/08/2011]-[17:33:54 PM]: [darkslayerz]: [127.0.0.1] ::secretgear
+[25/08/2011]-[17:34:04 PM]: [darkslayerz]: [127.0.0.1] ::item 15029 1
+[25/08/2011]-[17:34:09 PM]: [darkslayerz]: [127.0.0.1] ::item 15019 1
+[25/08/2011]-[17:34:31 PM]: [darkslayerz]: [127.0.0.1] ::xteleto darkslayerzz
+[25/08/2011]-[17:35:16 PM]: [darkslayerz]: [127.0.0.1] ::xteletome darkslayerzz
+[25/08/2011]-[17:35:22 PM]: [darkslayerz]: [127.0.0.1] ::spec
+[25/08/2011]-[17:35:48 PM]: [darkslayerz]: [127.0.0.1] ::empty
+[25/08/2011]-[17:36:30 PM]: [darkslayerz]: [127.0.0.1] ::empty
+[25/08/2011]-[17:36:30 PM]: [darkslayerz]: [127.0.0.1] ::brid
+[25/08/2011]-[17:36:33 PM]: [darkslayerz]: [127.0.0.1] ::empty
+[25/08/2011]-[17:36:35 PM]: [darkslayerz]: [127.0.0.1] ::empty
+[25/08/2011]-[17:36:37 PM]: [darkslayerz]: [127.0.0.1] ::secretgear
+[25/08/2011]-[17:36:50 PM]: [darkslayerz]: [127.0.0.1] ::item 15005 1
+[25/08/2011]-[17:37:12 PM]: [darkslayerz]: [127.0.0.1] ::item 391 1
+[25/08/2011]-[17:37:34 PM]: [darkslayerz]: [127.0.0.1] ::empty
+[25/08/2011]-[17:37:39 PM]: [darkslayerz]: [127.0.0.1] ::item 6685 1
+[25/08/2011]-[17:38:16 PM]: [darkslayerz]: [127.0.0.1] ::item 2440 1
+[25/08/2011]-[17:38:39 PM]: [darkslayerz]: [127.0.0.1] ::item 2440 1
+[25/08/2011]-[17:39:01 PM]: [darkslayerz]: [127.0.0.1] ::item 2436 1
+[25/08/2011]-[17:39:56 PM]: [darkslayerz]: [127.0.0.1] ::empty
+[25/08/2011]-[17:39:58 PM]: [darkslayerz]: [127.0.0.1] ::secretgear
+[25/08/2011]-[17:40:05 PM]: [darkslayerz]: [127.0.0.1] ::agsrunepk
+[25/08/2011]-[17:41:32 PM]: [darkslayerz]: [127.0.0.1] ::item 9075 1
+[25/08/2011]-[17:41:37 PM]: [darkslayerz]: [127.0.0.1] ::item 9075 1
+[25/08/2011]-[17:41:49 PM]: [darkslayerz]: [127.0.0.1] ::item 3024 1
+[25/08/2011]-[17:43:46 PM]: [darkslayerz]: [127.0.0.1] ::empty
+[25/08/2011]-[17:43:49 PM]: [darkslayerz]: [127.0.0.1] ::secretgear
+[25/08/2011]-[17:43:53 PM]: [darkslayerz]: [127.0.0.1] ::agsrunepk
+[25/08/2011]-[17:45:12 PM]: [darkslayerz]: [127.0.0.1] ::secretgear
+[25/08/2011]-[17:45:16 PM]: [darkslayerz]: [127.0.0.1] ::ddsrunepkgear
+[25/08/2011]-[17:46:58 PM]: [darkslayerz]: [127.0.0.1] ::cheapagsrunepkgear
+[25/08/2011]-[17:47:32 PM]: [darkslayerz]: [127.0.0.1] ::cheapddsrunepkgear
+[25/08/2011]-[17:49:03 PM]: [darkslayerz]: [127.0.0.1] ::cheapagsrunepkgear
+[25/08/2011]-[18:19:02 PM]: [darkslayerz]: [127.0.0.1] ::cheapagspkgear
+[25/08/2011]-[18:19:08 PM]: [darkslayerz]: [127.0.0.1] ::cheapagsrunepkgera
+[25/08/2011]-[18:19:10 PM]: [darkslayerz]: [127.0.0.1] ::cheapagsrunepkgear
+[25/08/2011]-[18:22:47 PM]: [darkslayerzz]: [127.0.0.1] ::xteleto darkslayerz
+[25/08/2011]-[19:24:18 PM]: [darkslayerz]: [127.0.0.1] ::spec
+[25/08/2011]-[19:51:34 PM]: [darkslayerz]: [127.0.0.1] ::gfx 1738
+[25/08/2011]-[19:51:44 PM]: [darkslayerz]: [127.0.0.1] ::gfx 2264
+[25/08/2011]-[19:51:48 PM]: [darkslayerz]: [127.0.0.1] ::gfx 2264
+[25/08/2011]-[19:51:50 PM]: [darkslayerz]: [127.0.0.1] ::gfx 2264
+[25/08/2011]-[19:51:53 PM]: [darkslayerz]: [127.0.0.1] ::gfx 2264
+[25/08/2011]-[19:51:57 PM]: [darkslayerz]: [127.0.0.1] ::gfx 2264
+[25/08/2011]-[19:51:59 PM]: [darkslayerz]: [127.0.0.1] ::gfx 2264
+[25/08/2011]-[19:53:34 PM]: [darkslayerz]: [127.0.0.1] ::xteleto darkslayerzz
+[25/08/2011]-[19:53:44 PM]: [darkslayerzz]: [127.0.0.1] ::cheapagsrunepkgear
+[25/08/2011]-[19:54:38 PM]: [darkslayerz]: [127.0.0.1] ::cheapddsrunepkgear
+[25/08/2011]-[19:54:42 PM]: [darkslayerz]: [127.0.0.1] ::xteleto darkslayerzz
+[25/08/2011]-[19:55:11 PM]: [darkslayerz]: [127.0.0.1] ::xteletome darkslayerzz
+[25/08/2011]-[19:55:37 PM]: [darkslayerz]: [127.0.0.1] ::xteletome darkslayerzz
+[25/08/2011]-[19:59:01 PM]: [darkslayerz]: [127.0.0.1] ::xteletome darkslayerzz
+[25/08/2011]-[19:59:25 PM]: [darkslayerz]: [127.0.0.1] ::xteletome darkslayerzz
+[25/08/2011]-[20:00:06 PM]: [darkslayerzz]: [127.0.0.1] ::xteleto darkslayerz
+[25/08/2011]-[20:00:09 PM]: [darkslayerzz]: [127.0.0.1] ::cheapagsrunepkgear
+[25/08/2011]-[20:00:57 PM]: [darkslayerz]: [127.0.0.1] ::ite 15332 1
+[25/08/2011]-[20:01:01 PM]: [darkslayerz]: [127.0.0.1] ::item 15332 1
+[25/08/2011]-[20:01:14 PM]: [darkslayerz]: [127.0.0.1] ::cheapagsrunepkgear
+[25/08/2011]-[20:01:20 PM]: [darkslayerz]: [127.0.0.1] ::xteleto darkslayerzz
+[25/08/2011]-[20:01:47 PM]: [darkslayerz]: [127.0.0.1] ::xteleotme darkslayerzz
+[25/08/2011]-[20:01:54 PM]: [darkslayerz]: [127.0.0.1] ::xteletome darkslayerzz
+[25/08/2011]-[20:02:12 PM]: [darkslayerz]: [127.0.0.1] ::xteletome darkslayerzz
+[25/08/2011]-[20:04:49 PM]: [mehh]: [127.0.0.1] ::cmb
+[25/08/2011]-[20:04:58 PM]: [darkslayerz]: [127.0.0.1] ::setlevel 1 99 mehh
+[25/08/2011]-[20:05:01 PM]: [darkslayerz]: [127.0.0.1] ::setlevel
+[25/08/2011]-[20:06:33 PM]: [darkslayerz]: [127.0.0.1] ::giveowner mehh
+[25/08/2011]-[20:06:38 PM]: [mehh]: [127.0.0.1] ::master
+[25/08/2011]-[20:06:46 PM]: [darkslayerz]: [127.0.0.1] ::demote mehh
+[25/08/2011]-[20:07:00 PM]: [darkslayerz]: [127.0.0.1] ::xteletome mehh
+[26/08/2011]-[19:53:49 PM]: [darkslayerz]: [127.0.0.1] ::xteleto mehh
+[26/08/2011]-[19:55:29 PM]: [darkslayerz]: [127.0.0.1] ::xteleto mehh
+[26/08/2011]-[19:55:37 PM]: [darkslayerz]: [127.0.0.1] ::item 4151 1
+[26/08/2011]-[19:56:18 PM]: [darkslayerz]: [127.0.0.1] ::xteletome mehh
+[26/08/2011]-[20:03:48 PM]: [darkslayerz]: [127.0.0.1] ::npc 591
+[26/08/2011]-[20:04:08 PM]: [darkslayerz]: [127.0.0.1] ::npc 588
+[26/08/2011]-[20:07:37 PM]: [darkslayerz]: [127.0.0.1] ::save
+[26/08/2011]-[20:57:31 PM]: [darkslayerz]: [127.0.0.1] ::cheapddsrunepkgear
+[26/08/2011]-[22:27:05 PM]: [darkslayerz]: [127.0.0.1] ::item 995 999999999
+[27/08/2011]-[10:39:51 AM]: [darkslayerz]: [127.0.0.1] ::barrage
+[27/08/2011]-[10:39:54 AM]: [darkslayerz]: [127.0.0.1] ::barrage
+[27/08/2011]-[10:40:03 AM]: [darkslayerz]: [127.0.0.1] ::empty
+[27/08/2011]-[10:40:04 AM]: [darkslayerz]: [127.0.0.1] ::barrows
+[27/08/2011]-[10:40:07 AM]: [darkslayerz]: [127.0.0.1] ::sets
+[27/08/2011]-[10:40:36 AM]: [darkslayerz]: [127.0.0.1] ::empty
+[27/08/2011]-[10:40:48 AM]: [darkslayerz]: [127.0.0.1] ::item 4709 999999999
+[27/08/2011]-[10:41:01 AM]: [darkslayerz]: [127.0.0.1] ::item 4711 999999999
+[27/08/2011]-[10:41:09 AM]: [darkslayerz]: [127.0.0.1] ::barrows 4713 999999999
+[27/08/2011]-[10:41:14 AM]: [darkslayerz]: [127.0.0.1] ::item 4715 999999999
+[27/08/2011]-[10:41:20 AM]: [darkslayerz]: [127.0.0.1] ::item 4713 999999999
+[27/08/2011]-[10:41:22 AM]: [darkslayerz]: [127.0.0.1] ::bank
+[27/08/2011]-[10:41:50 AM]: [darkslayerz]: [127.0.0.1] ::item 15487 2
+[27/08/2011]-[10:41:54 AM]: [darkslayerz]: [127.0.0.1] ::empty
+[27/08/2011]-[10:41:58 AM]: [darkslayerz]: [127.0.0.1] ::item 15486 200
+[27/08/2011]-[10:42:00 AM]: [darkslayerz]: [127.0.0.1] ::bank
+[27/08/2011]-[10:42:19 AM]: [darkslayerz]: [127.0.0.1] ::item 11283 1
+[27/08/2011]-[10:43:59 AM]: [darkslayerz]: [127.0.0.1] ::barrage
+[27/08/2011]-[10:50:20 AM]: [darkslayerz]: [127.0.0.1] ::cheapagsrunepkgear
+[27/08/2011]-[10:50:55 AM]: [darkslayerz]: [127.0.0.1] ::item 14484 1
+[27/08/2011]-[10:53:07 AM]: [darkslayerz]: [127.0.0.1] ::item 14484 1
+[27/08/2011]-[10:53:38 AM]: [darkslayerz]: [127.0.0.1] ::cheapddsrunepkgear
+[27/08/2011]-[10:57:22 AM]: [darkslayerz]: [127.0.0.1] ::item 14484 1
+[27/08/2011]-[10:57:34 AM]: [darkslayerz]: [127.0.0.1] ::spec
+[27/08/2011]-[11:00:13 AM]: [darkslayerz]: [127.0.0.1] ::xteleto darkslayerzz
+[27/08/2011]-[11:03:39 AM]: [darkslayerz]: [127.0.0.1] ::item 862 999999999
+[27/08/2011]-[11:03:41 AM]: [darkslayerz]: [127.0.0.1] ::bank
+[27/08/2011]-[11:03:59 AM]: [darkslayerz]: [127.0.0.1] ::bank
+[27/08/2011]-[11:04:45 AM]: [darkslayerz]: [127.0.0.1] ::xteletome darkslayerzz
+[27/08/2011]-[11:06:24 AM]: [darkslayerzz]: [127.0.0.1] ::item 619 1
+[27/08/2011]-[11:38:59 AM]: [darkslayerz]: [127.0.0.1] ::item 3585 1
+[27/08/2011]-[11:39:36 AM]: [darkslayerz]: [127.0.0.1] ::item 3586 1
+[27/08/2011]-[11:45:22 AM]: [darkslayerz]: [127.0.0.1] ::item 2528 1
+[27/08/2011]-[11:45:37 AM]: [darkslayerz]: [127.0.0.1] ::3008 1
+[27/08/2011]-[11:45:44 AM]: [darkslayerz]: [127.0.0.1] ::item 3008 1
+[27/08/2011]-[11:47:22 AM]: [darkslayerz]: [127.0.0.1] ::item 2835 1
+[27/08/2011]-[11:47:51 AM]: [darkslayerz]: [127.0.0.1] ::item 3585 1
+[27/08/2011]-[11:49:59 AM]: [darkslayerz]: [127.0.0.1] ::item 16016 1
+[27/08/2011]-[11:50:26 AM]: [darkslayerz]: [127.0.0.1] ::item 15818 1
+[27/08/2011]-[11:50:44 AM]: [darkslayerz]: [127.0.0.1] ::item 15924 1
+[27/08/2011]-[11:50:58 AM]: [darkslayerz]: [127.0.0.1] ::item 15935 1
+[27/08/2011]-[11:51:09 AM]: [darkslayerz]: [127.0.0.1] ::item 15946 1
+[27/08/2011]-[11:51:21 AM]: [darkslayerz]: [127.0.0.1] ::item 16023 1
+[27/08/2011]-[11:51:38 AM]: [darkslayerz]: [127.0.0.1] ::empty
+[27/08/2011]-[11:51:42 AM]: [darkslayerz]: [127.0.0.1] ::item 995 99999999

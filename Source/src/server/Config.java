@@ -5,9 +5,9 @@ public class Config {
 
 	public static final boolean SERVER_DEBUG = false;//needs to be false for Real world to work
 	
-	public static final String SERVER_NAME = "FormationX V1";
-	public static final String WELCOME_MESSAGE = "FormationX V1";
-	public static final String FORUMS = "www.formationx.net";
+	public static final String SERVER_NAME = "Project Warlords of Hell";
+	public static final String WELCOME_MESSAGE = "Welcome to Project Warlords of Hell";
+	public static final String FORUMS = "www.google.nl";
 	
 	public static final int CLIENT_VERSION = 1;
 	
@@ -40,10 +40,10 @@ public class Config {
 
 	public static final int[] CAT_ITEMS 	= 	{1555,1556,1557,1558,1559,1560,1561,1562,1563,1564,1565,7585,7584,1157,3589,}; // TO MAKE CATS NOT BE ABLE TO DROP WHEN UR HAVEING ONE SUMMONED
 	
-	public static final int START_LOCATION_X = 3213; // start here
-	public static final int START_LOCATION_Y = 3423;
-	public static final int RESPAWN_X = 3213; // when dead respawn here
-	public static final int RESPAWN_Y = 3423;
+	public static final int START_LOCATION_X = 3087; // start here
+	public static final int START_LOCATION_Y = 3492;
+	public static final int RESPAWN_X = 3087; // when dead respawn here
+	public static final int RESPAWN_Y = 3492;
 	public static final int DUELING_RESPAWN_X = 3362; // when dead in duel area spawn here
 	public static final int DUELING_RESPAWN_Y = 3263;
 	public static final int RANDOM_DUELING_RESPAWN = 5; // random coords

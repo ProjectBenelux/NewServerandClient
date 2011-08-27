@@ -1077,6 +1077,9 @@ c.sendMessage("You already have full hp idiot.");
 case 456: 
 c.getDH().sendDialogues(456, npcType); 
 break;
+case 494: 
+c.getDH().sendDialogues(576, npcType); 
+break;
 			case 1113:
 				c.getPA().movePlayer(3448, 3517, 0);
 				c.sendMessage("You have teleported to the summmoning shops!");
@@ -1329,9 +1332,7 @@ break;
 			case 1152:
 				c.getDH().sendDialogues(16,npcType);
 			break;
-			case 494:
-				c.getPA().openUpBank();
-			break;
+
 			case 2566:
 				c.getShops().openSkillCape();
 			break;
@@ -1477,6 +1478,9 @@ break;
                     c.fishtimer = c.getFishing().fishtime(c.fishies, c.fishreqt);
                 }
 		switch(npcType) {
+					case 494:
+				c.getPA().openUpBank();
+			break;
 			case 1282:
 				c.getShops().openShop(7);
 			break;
@@ -1561,11 +1565,6 @@ break;
                 break;
 			case 3788:
 				c.getShops().openVoid();
-			break;
-			case 494:
-				c.getItems().deleteItem(15015,c.getItems().getItemSlot(15015),999999999);
-				c.getItems().deleteItem(15016,c.getItems().getItemSlot(15016),999999999);
-				c.getPA().openUpBank();
 			break;
 			case 904:
 				c.getShops().openShop(52);

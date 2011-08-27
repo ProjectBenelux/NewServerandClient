@@ -6,6 +6,7 @@ package server.event;
  * @author Stuart <RogueX>
  * 
  */
+
 public class CycleEventContainer {
 
 	/**

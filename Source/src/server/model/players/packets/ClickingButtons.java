@@ -20,7 +20,7 @@ public class ClickingButtons implements PacketType {
 	@Override
 	public void processPacket(Client c, int packetType, int packetSize) {
 		int actionButtonId = Misc.hexToInt(c.getInStream().buffer, 0, packetSize);
-			//Misc.println(c.playerName+ " - actionbutton: "+actionButtonId);
+			Misc.println(c.playerName+ " - actionbutton: "+actionButtonId);
 		int[] spellIds = {4128,4130,4132,4134,4136,4139,4142,4145,4148,4151,4153,4157,4159,4161,4164,4165,4129,4133,4137,6006,6007,6026,6036,6046,6056,
 			4147,6003,47005,4166,4167,4168,48157,50193,50187,50101,50061,50163,50211,50119,50081,50151,50199,50111,50071,50175,50223,50129,50091};
 			for(int i = 0; i < spellIds.length; i++) {
@@ -341,6 +341,7 @@ public class ClickingButtons implements PacketType {
 			*/
 			//1st tele option
 			case 9190:
+
 				if (c.teleAction == 1) {
 					//rock crabs
 					c.getPA().spellTeleport(2676, 3715, 0);
@@ -405,7 +406,7 @@ return;
 }
 break;
 
-				case 9191:
+				case 9191: //Second teleport Option
 				if (c.teleAction == 1) {
 					//tav dungeon
 					c.getPA().spellTeleport(2884, 9798, 0);
@@ -446,6 +447,9 @@ break;
 			//3rd tele option	
 
 			case 9192:
+				if (c.dialogueAction == 82) {
+					c.getPA().closeAllWindows();
+				}
 				if (c.teleAction == 1) {
 					//slayer tower
 					c.getPA().spellTeleport(3428, 3537, 0);
@@ -482,7 +486,7 @@ break;
 				}
 				break;
 			//4th tele option
-			case 9193:
+			case 9193: 
 				if (c.teleAction == 1) {
 					//brimhaven dungeon
 					c.getPA().spellTeleport(2710, 9466, 0);
@@ -710,6 +714,9 @@ break;
 				if(c.dialogueAction == 100) {
 					c.getDH().sendDialogues(25, 946);
 				}
+				if (c.dialogueAction == 82) {
+					c.getDH().sendDialogues(568,1);
+				}
 				if(c.dialogueAction == 45) {
 					c.getPA().startTeleport(3339, 3067, 0, "modern");
 				}
@@ -718,6 +725,9 @@ break;
 				break;
 			
 			case 9179:
+				if (c.dialogueAction == 82) {
+					c.getShops().openPlayerShop(c);
+				}
 				if (c.usingGlory)
 					c.getPA().startTeleport(Config.AL_KHARID_X, Config.AL_KHARID_Y, 0, "modern");
 				if (c.dialogueAction == 2)

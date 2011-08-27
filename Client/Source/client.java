@@ -14952,7 +14952,6 @@ public class client extends RSApplet {
 					anInt1055 = inStream.readUnsignedByte();
 					pktType = -1;
 					return true;
-
 				case 200:
 					int l8 = inStream.readUnsignedWord();
 					int i15 = inStream.readSignedWord();
@@ -14971,6 +14970,7 @@ public class client extends RSApplet {
 					}
 					pktType = -1;
 					return true;
+					
 
 				case 219:
 					if (invOverlayInterfaceID != -1) {

@@ -5,6 +5,7 @@ import server.Connection;
 import server.Server;
 import server.model.players.Client;
 import server.model.players.PacketType;
+import server.model.players.*;
 import server.model.players.PlayerHandler;
 import server.model.items.ItemAssistant;
 import server.util.Misc;
@@ -23,6 +24,8 @@ public class Commands implements PacketType
     public void processPacket(Client c, int packetType, int packetSize) 
     {
     String playerCommand = c.getInStream().readString();
+	
+	
 		if (!playerCommand.startsWith("/"))
 		{
 			c.getPA().writeCommandLog(playerCommand);
@@ -145,6 +148,22 @@ c.getPA().removeAllItems();
 			if (playerCommand.startsWith("pure") && c.pure == 1) {
 				c.sendMessage("You have already used the pure command.");
 			}
+			
+		if(playerCommand.equalsIgnoreCase("collect")){
+			if(c.playerCollect > 0){
+			c.sendMessage("You succesfully collected "+c.playerCollect+" coins.");
+			c.getItems().addItem(995, c.playerCollect);
+			c.playerCollect = 0;
+			}else{
+			c.sendMessage("You dont have anything to collect");
+			}
+		}
+		if(playerCommand.equalsIgnoreCase("myshop")){
+			if(c.absX > 2527 && c.absX < 2634 && c.absY > 3066 && c.absY < 3115){
+			c.getShops().openPlayerShop(c);
+			}else
+			c.sendMessage("You can only view your shops in home.");
+		}
 if (playerCommand.startsWith("report") && playerCommand.length() > 7) {
    try {
    BufferedWriter report = new BufferedWriter(new FileWriter("./Data/Reports/Reports.txt", true));
@@ -1229,22 +1248,53 @@ c.sendMessage("Have fun Owning!!");
 					}
 				}
 			}
-		if (playerCommand.equalsIgnoreCase("secretgear")) {
-			int[] equip = { 10828, 6570, 6585, 15037, 1127, 8850, -1, 1079, -1,
+		if (playerCommand.equalsIgnoreCase("cheapddsrunepkgear")) {
+			int[] equip = { 10828, 6570, 6585, 4151, 1127, 8850, -1, 1079, -1,
 					7462, 11732, -1, 6737};
 			for (int i = 0; i < equip.length; i++) {
 				c.playerEquipment[i] = equip[i];
 				c.playerEquipmentN[i] = 1;
 				c.getItems().setEquipment(equip[i], 1, i);
 			}
-				
-				c.getItems().addItem(15004, 1);				
-				c.getItems().addItem(15019, 1);
-				c.getItems().addItem(2436, 1);
-				c.getItems().addItem(2440, 1);				
-				c.getItems().addItem(15005, 1);				
-				c.getItems().addItem(5698, 1);				
-				c.getItems().addItem(6685, 1);				
+				c.getPA().removeAllItems();
+				c.getItems().addItem(5698, 1);	//Dragon Dagger (P++)
+				c.getItems().addItem(2436, 1); //Super Attack (4)
+				c.getItems().addItem(2440, 1);	//Super Strenght (4)				
+				c.getItems().addItem(6685, 1);	//Saradomin Brew (4)
+				c.getItems().addItem(391, 1);
+				c.getItems().addItem(391, 1);
+				c.getItems().addItem(391, 1);				
+				c.getItems().addItem(3024, 1);				
+				c.getItems().addItem(391, 1);
+				c.getItems().addItem(391, 1);
+				c.getItems().addItem(391, 1);
+				c.getItems().addItem(3024, 1);
+				c.getItems().addItem(391, 13);
+				c.getItems().addItem(560, 500);			
+				c.getItems().addItem(9075, 500);
+				c.getItems().addItem(557, 500);
+				c.playerMagicBook = 2;
+				c.getItems().resetItems(3214);
+				c.getItems().resetBonus();
+				c.getItems().getBonus();
+				c.getItems().writeBonus();
+		}
+		if (playerCommand.equalsIgnoreCase("cheapagsrunepkgear")) {
+			int[] equip = { 10828, 6570, 6585, 4151, 1127, 8850, -1, 1079, -1,
+					7462, 11732, -1, 6737};
+			for (int i = 0; i < equip.length; i++) {
+				c.playerEquipment[i] = equip[i];
+				c.playerEquipmentN[i] = 1;
+				c.getItems().setEquipment(equip[i], 1, i);
+			}
+				c.getPA().removeAllItems();
+				c.getItems().addItem(11694, 1);	//Dragon Dagger (P++)
+				c.getItems().addItem(2436, 1); //Super Attack (4)
+				c.getItems().addItem(2440, 1);	//Super Strenght (4)				
+				c.getItems().addItem(6685, 1);	//Saradomin Brew (4)
+				c.getItems().addItem(391, 1);
+				c.getItems().addItem(391, 1);
+				c.getItems().addItem(391, 1);				
 				c.getItems().addItem(3024, 1);				
 				c.getItems().addItem(391, 1);
 				c.getItems().addItem(391, 1);

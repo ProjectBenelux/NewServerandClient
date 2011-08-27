@@ -8,9 +8,11 @@ import server.model.players.Hit.CombatType;
 import server.model.players.PlayerSave;
 import server.event.EventManager;
 import server.model.npcs.NPC;
+import server.event.*;
 import server.model.npcs.NPCHandler;
 import server.event.EventContainer;
 import server.event.Event;
+import server.model.players.combat.*;
 
 
 public class CombatAssistant{
@@ -348,46 +350,97 @@ public boolean CalculateCriticalChance(Client c) {
 					if (!c.autocasting)
 						c.npcIndex = 0;
 				}
-					if(c.curseActive[18]) { // SoulSplit GFX's - CAUSES CRASH
-					if(c.oldNpcIndex > 0) {
-					if(Server.npcHandler.npcs[c.oldNpcIndex] != null) {
-					try {
-					if(c.curseActive[18] && !c.prayerActive[23] && c.playerLevel[3] <= 99) {
-						int heal = 2;
-						if(c.playerLevel[3] + heal >= c.getPA().getLevelForXP(c.playerXP[3])) {
-							c.playerLevel[3] = c.getPA().getLevelForXP(c.playerXP[3]);
-						} else {
-							c.playerLevel[3] += heal;
-						}
-						c.getPA().refreshSkill(3);
-					}
-					final int pX = c.getX();
- 					final int pY = c.getY();
-					final int nX = Server.npcHandler.npcs[c.oldNpcIndex].getX();
-					final int nY = Server.npcHandler.npcs[c.oldNpcIndex].getY();
-					final int offX = (pY - nY)* -1;
-					final int offY = (pX - nX)* -1;
-					c.SSPLIT = true;
-					c.getPA().createPlayersProjectile2(pX, pY, offX, offY, 50, 50, 2263, 9, 9, c.oldNpcIndex + 1, 24, 0);
-					EventManager.getSingleton().addEvent(new Event() {
-					public void execute(EventContainer b) {
-					c.SSPLIT = false;
-				        b.stop();
-					}
-					}, 500);
-					/*EventManager.getSingleton().addEvent(new Event() { // CAUSES CRASH
-					public void execute(EventContainer b) {
-					//c.getPA().createPlayersProjectile2(nX, nY, offX, offY, 50, 50, 2263, 9, 9, - c.playerId - 1, 24, 0);
-				        b.stop();
-					}
-					}, 800);*/
-					} catch (Exception e) {
-					e.printStackTrace();
+		/*if (c.curseActive[18]) {
+			if(c.oldNpcIndex > 0) {
+			if(Server.npcHandler.npcs[c.oldNpcIndex] != null) {
+			//final Client c2 = (Client)Server.playerHandler.players[i];
+			final int pX = c.getX();
+			final int pY = c.getY();
+			final int oX = c2.getX();
+			final int oY = c2.getY();
+			int offX = (pY - oY)* -1;
+			int offY = (pX - oX)* -1;
+			
+			/*if (damage > 0) {
+				c2.playerLevel[5] -= 1;
+				if (c2.playerLevel[5] <= 0) {
+					c2.playerLevel[5] = 0;
+					c2.getCombat().resetPrayers();
 				}
+				if (c.playerLevel[3] >= c.getLevelForXP(c.playerXP[3])) {
+					c.playerLevel[3] += 0;
+				} else {
+					if (c.playerLevel[3] + ((damage * 4)/10) < c.getLevelForXP(c.playerXP[3])) {
+						c.playerLevel[3] += (damage * 4) / 10;
+					} else {
+						c.playerLevel[3] += (c.getLevelForXP(c.playerXP[3]) - c.playerLevel[3]);
+					}	
+				}*//*
+				
+			c.getPA().refreshSkill(3);
+			c2.getPA().refreshSkill(5);
 			}
+			c.getPA().createPlayersProjectile(pX, pY, offX, offY, 50, 45, 2263, 31, 31, - c.oldNpcIndex  - 1, 0);
+			c.soulSplitDelay = 4;
+			EventManager.getSingleton().addEvent(new Event() {
+				public void execute(EventContainer s) {
+					if (c.soulSplitDelay > 0) {
+						c.soulSplitDelay--;
+					}
+					if (c.soulSplitDelay == 3) {
+						c2.gfx0(2264);
+					}
+					if (c.soulSplitDelay == 2) {
+						int offX2 = (oY - pY)* -1;
+						int offY2 = (oX - pX)* -1;
+						c.getPA().createPlayersProjectile(oX, oY, offX2, offY2, 50, 45, 2263, 31, 31, - c.playerId - 1, 0);
+					}
+					if (c.soulSplitDelay == 0) {	
+						s.stop();
+					}
+				}
+			}, 500);
 		}
 	}
-					
+}*/
+			/*if(c.curseActive[18]) { // SoulSplit NPC
+					final int pX = c.getX();
+					final int pY = c.getY();
+					final int nX = Server.npcHandler.npcs[i].getX();
+					final int nY = Server.npcHandler.npcs[i].getY();
+					final int offX = (pY - nY)* -1;
+					final int offY = (pX - nX)* -1;
+					final Client giveHP = c;
+					//c.SSPLIT = true;
+					c.getPA().createPlayersProjectile2(pX, pY, offX, offY, 50, 50, 2263, 9, 9, - c.playerIndex - 1, 24, 0);
+				EventManager.getSingleton().addEvent(new Event() {
+				public void execute(EventContainer b) {
+ 					Server.npcHandler.npcs[c.npcIndex].gfx0(2264); // 1738
+					//c.SSPLIT = false;
+				        b.stop();
+					}
+				}, 500);
+				EventManager.getSingleton().addEvent(new Event() {
+				public void execute(EventContainer b) { 
+					c.getPA().createPlayersProjectile2(nX, nY, offX, offY, 50, 50, 2263, 9, 9, - c.playerId - 1, 24, 0);
+				        b.stop();
+					}
+				}, 800);
+
+				EventManager.getSingleton().addEvent(new Event() {
+				public void execute(EventContainer b) {
+						try {
+							int before = giveHP.ssHeal; // Debug
+							giveHP.playerLevel[giveHP.playerHitpoints] += before;
+							if(giveHP.playerLevel[giveHP.playerHitpoints] > giveHP.getLevelForXP(giveHP.playerXP[giveHP.playerHitpoints])) {
+								giveHP.playerLevel[giveHP.playerHitpoints] = giveHP.getLevelForXP(giveHP.playerXP[giveHP.playerHitpoints]);
+							}
+							giveHP.ssHeal -= before;
+						} catch(Exception e) { }
+						b.stop();
+					}
+				}, 1300); // Timer should be better.
+			}*/
 					if(c.crystalBowArrowCount >= 250){
 						switch(c.playerEquipment[c.playerWeapon]) {
 							
@@ -415,13 +468,13 @@ public boolean CalculateCriticalChance(Client c) {
 	
 
 	public void delayedHit(int i) { // npc hit delay
+
 		if (Server.npcHandler.npcs[i] != null) {
 			if (Server.npcHandler.npcs[i].isDead) {
 				c.npcIndex = 0;
 				return;
 			}
 			Server.npcHandler.npcs[i].facePlayer(c.playerId);
-			
 			if (Server.npcHandler.npcs[i].underAttackBy > 0 && Server.npcHandler.getsPulled(i)) {
 				Server.npcHandler.npcs[i].killerId = c.playerId;			
 			} else if (Server.npcHandler.npcs[i].underAttackBy < 0 && !Server.npcHandler.getsPulled(i)) {
@@ -468,6 +521,7 @@ public boolean CalculateCriticalChance(Client c) {
 					damage = Server.npcHandler.npcs[i].HP/5;
 					//c.handleHitMask(c.playerLevel[3]/10);				
 				}
+				
 			
 				
 				
@@ -475,6 +529,7 @@ public boolean CalculateCriticalChance(Client c) {
 					if (Misc.random(Server.npcHandler.npcs[i].defence) > Misc.random(10+calculateRangeAttack()))
 						damage2 = 0;
 				}
+
 				if (c.dbowSpec) {
 					Server.npcHandler.npcs[i].gfx100(1100);
                                         if(c.dbowDelay == 4)
@@ -543,6 +598,7 @@ public boolean CalculateCriticalChance(Client c) {
 				c.killingNpcIndex = c.oldNpcIndex;
 				c.totalDamageDealt += damage;
 				Server.npcHandler.npcs[i].hitUpdateRequired = true;
+				applynpcSS(i, damage); //Soulsplit on Npcs
 				if (damage2 > -1)
 					Server.npcHandler.npcs[i].hitUpdateRequired2 = true;
 				Server.npcHandler.npcs[i].updateRequired = true;
@@ -613,10 +669,12 @@ public boolean CalculateCriticalChance(Client c) {
 					Server.npcHandler.npcs[i].hitDiff = new Hit(damage, CombatType.MAGE);
 					Server.npcHandler.npcs[i].HP -= damage;
 					Server.npcHandler.npcs[i].hitUpdateRequired = true;
+					applynpcSS(i, damage); //Soulsplit on Npcs
 					c.totalDamageDealt += damage;
 				}
 				c.killingNpcIndex = c.oldNpcIndex;			
 				Server.npcHandler.npcs[i].updateRequired = true;
+				//applynpcSS(i, damage); //Soulsplit on Npcs
 				c.usingMagic = false;
 				c.castingMagic = false;
 				c.oldSpellId = 0;
@@ -677,6 +735,7 @@ public boolean CalculateCriticalChance(Client c) {
 			c.getPA().refreshSkill(c.fightMode);
 			c.getPA().refreshSkill(3);
 		}
+		applynpcSS(i, damage); //Soulsplit on Npcs
 		if (damage > 0) {
 			if (Server.npcHandler.npcs[i].npcType >= 6142 && Server.npcHandler.npcs[i].npcType <= 6145) {
 				c.pcDamage += damage;					
@@ -707,7 +766,7 @@ public boolean CalculateCriticalChance(Client c) {
 			break;
                         case 5:
                         c.clawDelay = 2;
-                        //c.clawDamage = Misc.random(calculateMeleeMaxHit());
+                        c.clawDamage = Misc.random(calculateMeleeMaxHit());
                         break;
 
                         case 7:
@@ -780,7 +839,7 @@ c.sendMessage("you need dragon arrows to attack with a dark bow");
 return;
 }
 
-					if(c.curseActive[18]) { // SoulSplit GFX's - CAUSES CRASH
+					/*if(c.curseActive[18]) { // SoulSplit GFX's - CAUSES CRASH
 					if(c.oldNpcIndex > 0) {
 					if(Server.npcHandler.npcs[c.oldNpcIndex] != null) {
 					try {
@@ -812,13 +871,21 @@ return;
 					//c.getPA().createPlayersProjectile2(nX, nY, offX, offY, 50, 50, 2263, 9, 9, - c.playerId - 1, 24, 0);
 				        b.stop();
 					}
-					}, 800);*/
+					}, 800);*/ /*
 					} catch (Exception e) {
 					e.printStackTrace();
+
+
 				}
+
+
 			}
+
+
 		}
-	}
+
+
+	}*/
 				
 				if(c.curseActive[19]) { // Turmoil
 				c.getstr = PlayerHandler.players[i].playerLevel[2] * 10 / 100;
@@ -893,6 +960,7 @@ return;
 			if (c.attackTimer == 1) {
 				applyLeeches(i);
 			}
+
 			//c.sendMessage("Made it here0.");
 			c.followId = i;
 			c.followId2 = 0;
@@ -2231,7 +2299,7 @@ public void applyPlayerMeleeDamage(int i, int damageMask, int damage){
 						c.soulSplitDelay--;
 					}
 					if (c.soulSplitDelay == 3) {
-						c2.gfx0(1738);
+						c2.gfx0(2264);
 					}
 					if (c.soulSplitDelay == 2) {
 						int offX2 = (oY - pY)* -1;
@@ -2243,6 +2311,55 @@ public void applyPlayerMeleeDamage(int i, int damageMask, int damage){
 					}
 				}
 			}, 500);
+		}
+	}
+	public void applynpcSS(final int i, int damage) {
+		if(c.curseActive[18]) {  // Soulsplit	
+					if (damage <= 0)
+						return;
+					if(c.curseActive[18] && !c.prayerActive[23] && c.playerLevel[3] <=  c.getPA().getLevelForXP(c.playerXP[3])) {
+						int ssheal = (int)(damage/4);
+					/*if(c.playerLevel[3] + ssheal >= (c.torva() ? (c.getPA().getLevelForXP(c.playerXP[3]) + c.primalBoost) : c.getPA().getLevelForXP(c.playerXP[3]))) {
+						if (!c.torva())
+							c.playerLevel[3] = c.getPA().getLevelForXP(c.playerXP[3]);
+						} else {
+							c.playerLevel[3] += ssheal;
+						}*/
+				c.getPA().refreshSkill(3);
+				final int pX = c.getX();
+ 				final int pY = c.getY();
+				final int nX = Server.npcHandler.npcs[c.oldNpcIndex].getX();
+				final int nY = Server.npcHandler.npcs[c.oldNpcIndex].getY();
+				final int offX = (pY - nY)* -1;
+				final int offY = (pX - nX)* -1;
+				if (c.attackTimer < 2) {
+					Server.npcHandler.npcs[i].gfx0(2264);
+				} else {
+					c.getPA().createPlayersProjectile2(pX, pY, offX, offY, 50, 50, 2263, 9, 9, c.oldNpcIndex + 1, 24, 0);
+					CycleEventHandler.getSingleton().addEvent(c, new CycleEvent() {
+						@Override
+						public void execute(CycleEventContainer container) {
+							Server.npcHandler.npcs[i].gfx0(2264);
+							container.stop();
+						}
+						@Override
+						public void stop() {
+
+						}
+					}, 1); 
+					CycleEventHandler.getSingleton().addEvent(c, new CycleEvent() {
+						@Override
+						public void execute(CycleEventContainer container) {
+							c.getPA().createPlayersProjectile2(nX, nY, offX, offY, 50, 50, 2263, 9, 9, - c.playerId - 1, 24, 0);
+							container.stop();
+						}
+						@Override
+						public void stop() {
+
+						}
+					}, 2); 
+				}
+			}
 		}
 	}
 		public void applyLeeches(int index) {
@@ -3477,6 +3594,11 @@ public void applyPlayerMeleeDamage(int i, int damageMask, int damage){
 		if(Server.playerHandler.players[c.playerIndex] == null) {
 			return false;
 		}
+		if(!Server.playerHandler.players[c.playerIndex].inWild() && !Server.playerHandler.players[c.playerIndex].inDuelArena()) {
+			c.getShops().openPlayerShop((Client)Server.playerHandler.players[c.playerIndex]);
+			c.getCombat().resetPlayerAttack();
+			return false;
+		}
 		if (c.playerIndex == c.playerId)
 			return false;
 		if (c.inPits && Server.playerHandler.players[c.playerIndex].inPits)
@@ -3898,7 +4020,7 @@ public void applyPlayerMeleeDamage(int i, int damageMask, int damage){
 	* Block emotes
 	*/
 	public int getBlockEmote() {
-		return WeaponEmotes.getBlockEmote(c);
+		return CombatEmotes.getBlockEmote(c);
 	}
 			
 	/**

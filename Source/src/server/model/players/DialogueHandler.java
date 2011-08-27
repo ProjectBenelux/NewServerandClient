@@ -16,6 +16,56 @@ public class DialogueHandler {
 	public void sendDialogues(int dialogue, int npcId) {
 		c.talkingNpc = npcId;
 		switch(dialogue) {
+		  case 55:
+   sendStartInfo("", "You find a casket!", "", "", "");
+   break;
+  case 56:
+   sendStartInfo("", "You've found another clue scroll!", "", "", "");
+   break;
+  case 57:
+   sendNpcChat2("Well done!", "-", 1294, "Brundt the Chieftain");
+   break;
+			case 568:
+			sendNpcChat4("Hello! I will explain how to use player-owned shops.",
+						"To view another person's shop, right click them in a",
+						"safe zone, and hit \"View Shop Playername\". this will",
+						"open their shop, where you may buy items directly.",
+						496,
+						"Banker");
+			c.nextChat = 569;
+		break;
+		case 569:
+			sendNpcChat4("To view, and stock your own shop, type ::shop",
+						"This will open your shop. You can right click and sell",
+						"items from your inventory to the shop. You will then",
+						"be asked to enter a price, per item.",
+						496,
+						"Banker");
+			c.nextChat = 570;
+		break;
+		case 570:
+			sendNpcChat4("To remove an item from your shop, use ::shop and",
+						"Right click an item in the shop and select buy.",
+						"This will place the item in your inventory and",
+						"remove it from your shop.",
+						496,
+						"Banker");
+			c.nextChat = 571;
+		break;
+		case 571:
+			sendNpcChat4("When a player buys an item in your store, you will",
+						"be informed. To collect money, use the ::collect",
+						"command. Your shop and collection money is saved",
+						"so you can logout and login. Have fun!",
+						496,
+						"Banker");
+			c.nextChat = 0;
+		break;
+case 576:
+			sendOption4("Learn how to use my shop", "Manage my own shop", "No thanks", "");
+			c.dialogueAction = 82;
+		break;
+		//End Player Owned Shops
 		case 200:
 			sendNpcChat4("Hello there "+c.playerName+"!"," I have the ability to reset your combat stats for free!","But remember, this is irreversable!","What would you like me to do?", c.talkingNpc, "Xp Reseter");
 			c.nextChat = 210;
@@ -254,6 +304,9 @@ public class DialogueHandler {
 		break;
 		}
 	}
+	//Shops
+	//Player Owned Shops
+
 	
 	/*
 	 * Information Box
@@ -340,7 +393,7 @@ public class DialogueHandler {
 		
 	}
 	
-	private void sendNpcChat4(String s, String s1, String s2, String s3, int ChatNpc, String name) {
+	/*private void sendNpcChat4(String s, String s1, String s2, String s3, int ChatNpc, String name) {
 		c.getPA().sendFrame200(4901, 591);
 		c.getPA().sendFrame126(name, 4902);
 		c.getPA().sendFrame126(s, 4903);
@@ -353,7 +406,7 @@ public class DialogueHandler {
 	
 	/*
 	 * Player Chating Back
-	 */
+	 *
 	
 	private void sendPlayerChat1(String s) {
 		c.getPA().sendFrame200(969, 591);
@@ -389,6 +442,36 @@ public class DialogueHandler {
 		c.getPA().sendFrame126(s2, 4898);
 		c.getPA().sendFrame75(ChatNpc, 4894);
 		c.getPA().sendFrame164(4893);
+	}*/
+	public void sendNpcChat2(String s, String s1, int ChatNpc, String name) {
+		c.getPA().sendFrame200(4888, 9847);
+		c.getPA().sendFrame126(name, 4889);
+		c.getPA().sendFrame126(s, 4890);
+		c.getPA().sendFrame126(s1, 4891);
+		c.getPA().sendFrame75(ChatNpc, 4888);
+		c.getPA().sendFrame164(4887);
+	}
+	
+	public void sendNpcChat3(String s, String s1, String s2, int ChatNpc, String name) {
+		c.getPA().sendFrame200(4894, 9847);	//Was 591
+		c.getPA().sendFrame126(name, 4895);
+		c.getPA().sendFrame126(s, 4896);
+		c.getPA().sendFrame126(s1, 4897);
+		c.getPA().sendFrame126(s2, 4898);
+		c.getPA().sendFrame75(ChatNpc, 4894);
+		c.getPA().sendFrame164(4893);
+	}
+	
+	
+	private void sendNpcChat4(String s, String s1, String s2, String s3, int ChatNpc, String name) {
+		c.getPA().sendFrame200(4901, 9847);
+		c.getPA().sendFrame126(name, 4902);
+		c.getPA().sendFrame126(s, 4903);
+		c.getPA().sendFrame126(s1, 4904);
+		c.getPA().sendFrame126(s2, 4905);
+		c.getPA().sendFrame126(s3, 4906);
+		c.getPA().sendFrame75(ChatNpc, 4901);
+		c.getPA().sendFrame164(4900);
 	}
 	
 	private void sendPlayerChat3(String s, String s1, String s2) {

@@ -16,6 +16,7 @@ import server.util.Misc;
 import server.util.Stream;
 import server.model.players.skills.*;
 import server.event.CycleEventHandler;
+import server.model.minigames.TreasureTrails.*;
 import server.event.EventManager;
 import server.event.Event;
 import server.model.players.Hit.CombatType;
@@ -35,6 +36,8 @@ public class Client extends Player {
 	public boolean summon;
 	public static Client cliento2;
 	private ItemAssistant itemAssistant = new ItemAssistant(this);
+	public LevelOneClue LevelOneClue = new LevelOneClue(this);
+	public Clues Clues = new Clues(this);
 	private ShopAssistant shopAssistant = new ShopAssistant(this);
 	private TradeAndDuel tradeAndDuel = new TradeAndDuel(this);
 	private PlayerAssistant playerAssistant = new PlayerAssistant(this);
@@ -98,6 +101,7 @@ public class Client extends Player {
 		inStream.currentOffset = 0;
 		buffer = new byte[Config.BUFFER_SIZE];
 	}
+	
 
 	public int getCombatLevel() {
 		int mag = (int) ((getLevelForXP(playerXP[6])) * 1.5);
@@ -1334,6 +1338,9 @@ public class Client extends Player {
 				getPA().sendFrame126("@yel@Level: " + wildLevel, 199);
 			}
 			getPA().showOption(3, 0, "Attack", 1);
+		} else if (inHomeShoppingArea()) {
+		getPA().showOption(3, 0, "View Shop", 1);
+getPA().walkableInterface(-1);
 		} else if (inPcBoat()) {
 			getPA().walkableInterface(21005);
 		} else if (inPcGame()) {
@@ -1614,6 +1621,12 @@ public class Client extends Player {
 	public TradeLog getTradeLog() {
 		return tradeLog;
 	}
+	public LevelOneClue levelOne() {
+  return LevelOneClue;
+ }
+ public Clues getClue() {
+  return Clues;
+ }
 
 	public WarriorsGuild getWarriorsGuild() {
 		return warriorsGuild;

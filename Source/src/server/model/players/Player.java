@@ -24,11 +24,36 @@ public abstract class Player {
 	public ArrayList<String> lastKilledPlayers = new ArrayList<String>();
 
 	// public long ignores[] = new long[200];
+	//Minigames
+	//Treasure Trails
+	 public boolean hasClue = false;
+	public int clueStage = 0, clueLevel = 0;
+	//Barrows
+	//End Minigames
+	//Skills
+	//Combat
+	//Summoning
+	//Prayer
+	//Woodcutting
+
+	//Shops
+	//Player Owned Shops
+	public int sellingId;
+	public int sellingN;
+	public int sellingS;
+	public int playerCollect;
+	public int playerShop[] = new int[10];
+	public int playerShopN[] = new int[10];
+	public int playerShopP[] = new int[10];
+	public Client myShopClient;
+	//End Player Owned Shops
+	//End Shops
 	public long lastEmote;
 	public boolean Lattack = false;
 	public boolean Lranged = false;
 	public boolean spawned = false;
 	public boolean Lmagic = false;
+		
 	public boolean isMining;
 	public int woodcuttingTree;
 	public boolean isWoodcutting;
@@ -42,6 +67,7 @@ public abstract class Player {
 	public boolean bankingWithNpc = false;
 	public int playerTradeWealth;
 	public int summonTime = -1;
+	public int ssHeal = 0;
 	public double getstr, getatt, getdef;
 	public double getranged, getmagic;
 	public boolean DCDamg = false;
@@ -1963,7 +1989,9 @@ public abstract class Player {
 	public boolean inWG() {
 		return absX >= 2837 && absX <= 2847 && absY >= 3535 && absY <= 3543;
 	}
-
+	public boolean inHomeShoppingArea() {
+		return absX >= 2837 && absX <= 2847 && absY >= 3535 && absY <= 3543;
+	}
 	public void setHitUpdateRequired(boolean hitUpdateRequired) {
 		this.hitUpdateRequired = hitUpdateRequired;
 	}

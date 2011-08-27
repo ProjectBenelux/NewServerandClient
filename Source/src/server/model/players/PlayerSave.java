@@ -109,6 +109,8 @@ public class PlayerSave {
 						p.catChosen = Integer.parseInt(token2);
 					} else if (token.equals("has-npc")) {
 						p.hasNpc = Boolean.parseBoolean(token2);
+					} else if (token.equals("shopcollect")) {
+						p.playerCollect = Integer.parseInt(token2);
 					} else if (token.equals("EP")) {
 						p.earningPotential = Integer.parseInt(token2);
 					} else if (token.equals("magic-book")) {
@@ -258,7 +260,15 @@ public class PlayerSave {
 						p.occupied[Integer.parseInt(token3[0])] = Boolean
 								.parseBoolean(token3[1]);
 					}
-					break;
+
+				break;
+					case 10:
+		if (token.equals("character-shop")) {
+			p.playerShop[Integer.parseInt(token3[0])] = Integer.parseInt(token3[1]);
+			p.playerShopP[Integer.parseInt(token3[0])] = Integer.parseInt(token3[2]);
+			p.playerShopN[Integer.parseInt(token3[0])] = Integer.parseInt(token3[3]);
+		} 
+	break;
 				}
 			} else {
 				if (line.equals("[ACCOUNT]")) {
@@ -283,6 +293,8 @@ public class PlayerSave {
 					ReadMode = 9;
 				} else if (line.equals("[STORED]")) {
 					ReadMode = 20;
+				} else if (line.equals("[SHOP]")) {
+					ReadMode = 10;
 				} else if (line.equals("[OCCUPY]")) {
 					ReadMode = 21;
 				} else if (line.equals("[EOF]")) {
@@ -363,6 +375,9 @@ public class PlayerSave {
 			characterfile.write(Integer.toString(p.playerRights), 0, Integer
 					.toString(p.playerRights).length());
 			characterfile.newLine();
+				characterfile.write("shopcollect = ", 0, 14);
+	characterfile.write(Integer.toString(p.playerCollect), 0, Integer.toString(p.playerCollect).length());
+	characterfile.newLine();
 			for (int i = 0; i < p.lastConnectedFrom.size(); i++) {
 				characterfile.write("connected-from = ", 0, 17);
 				characterfile.write(p.lastConnectedFrom.get(i), 0,
@@ -721,6 +736,23 @@ public class PlayerSave {
 				characterfile.write(Boolean.toString(p.occupied[i]), 0, Boolean
 						.toString(p.occupied[i]).length());
 				characterfile.newLine();
+			}
+			characterfile.newLine();
+					/*SHOP*/
+			characterfile.write("[SHOP]", 0, 6);
+			characterfile.newLine();
+			for (int i = 0; i < p.playerShop.length; i++) {
+				if (p.playerShop[i] > 0) {
+					characterfile.write("character-shop = ", 0, 17);
+					characterfile.write(Integer.toString(i), 0, Integer.toString(i).length());
+					characterfile.write("	", 0, 1);
+					characterfile.write(Integer.toString(p.playerShop[i]), 0, Integer.toString(p.playerShop[i]).length());
+					characterfile.write("	", 0, 1);
+					characterfile.write(Integer.toString(p.playerShopP[i]), 0, Integer.toString(p.playerShopP[i]).length());
+					characterfile.write("	", 0, 1);
+					characterfile.write(Integer.toString(p.playerShopN[i]), 0, Integer.toString(p.playerShopN[i]).length());
+					characterfile.newLine();
+				}
 			}
 			characterfile.newLine();
 

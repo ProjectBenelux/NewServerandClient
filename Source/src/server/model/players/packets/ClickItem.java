@@ -14,10 +14,12 @@ public class ClickItem implements PacketType {
 	public void processPacket(Client c, int packetType, int packetSize) {
 		int junk = c.getInStream().readSignedWordBigEndianA();
 		int itemSlot = c.getInStream().readUnsignedWordA();
+		c.getClue().clickCasket(itemId);
 		int itemId = c.getInStream().readUnsignedWordBigEndian();
 		if (itemId != c.playerItems[itemSlot] - 1) {
 			return;
 		}
+		
 		if (itemId == 15055) {
 			if(c.inDuelArena()) {
 				c.sendMessage("Rocktails are disabled in duels.");

@@ -56,7 +56,7 @@ if(!c.getItems().playerHasItem(itemId,1,slot)) {
 						return;
 					}
 				}
-				//Server.itemHandler.createGroundItem(c, itemId, c.getX(), c.getY(), c.playerItemsN[slot], c.getId());
+				Server.itemHandler.createGroundItem(c, itemId, c.getX(), c.getY(), c.playerItemsN[slot], c.getId());
 				c.getItems().deleteItem(itemId, slot, c.playerItemsN[slot]);
 			} else {
 				c.sendMessage("This items cannot be dropped.");

@@ -98,7 +98,10 @@ public class ShopAssistant {
 		}
 	}
 
+
 	public double getItemShopValue(int ItemID, int Type, int fromSlot) {
+
+		
 		double ShopValue = 1;
 		double Overstock = 0;
 		double TotPrice = 0;
@@ -111,7 +114,9 @@ public class ShopAssistant {
 		}
 
 		TotPrice = ShopValue;
-
+		if(c.myShopId == 7390){
+			return c.myShopClient.playerShopP[fromSlot];
+		}
 		if (ShopHandler.ShopBModifier[c.myShopId] == 1) {
 			TotPrice *= 1;
 			TotPrice *= 1;
@@ -134,6 +139,79 @@ public class ShopAssistant {
 		}
 		return 0;
 	}
+	/**
+	 * Player Owned Shops
+	 **/
+	public void openPlayerShop(Client o){	
+		if(o == null || o.properLogout)
+			return;	
+		c.getItems().resetItems(3823);
+		resetShop(o);
+		c.myShopClient = o;
+		c.myShopId = 7390;
+		c.isShopping = true;
+		c.getPA().sendFrame248(3824, 3822);
+		c.getPA().sendFrame126(o.playerName+"s shop!", 3901);
+	}
+	public int[] fixArray(int[] array){
+		int arrayPos = 0;
+		int[] newArray = new int[array.length];
+		for(int x = 0; x < array.length; x++){
+			if(array[x] != 0){
+				newArray[arrayPos] = array[x];
+				arrayPos++;
+			}
+		}
+		return newArray;
+	}
+
+	public void fixShop(Client o){
+		o.playerShop = fixArray(o.playerShop);
+		o.playerShopN = fixArray(o.playerShopN);
+		o.playerShopP = fixArray(o.playerShopP);	
+	}
+
+	public void resetShop(Client o) {
+		synchronized(c) {
+			fixShop(o);
+			for (int x = 0; x < 10; x++) {
+				if (o.playerShopN[x] <= 0) {
+					o.playerShop[x] = 0;
+				}
+			}
+			int TotalItems = 0;
+			for (int i = 0; i < 10; i++) {
+				if (o.playerShop[i] > 0) {
+					TotalItems++;
+				}
+			}
+			if (TotalItems > 10) {
+				TotalItems = 10;
+			}
+			c.getOutStream().createFrameVarSizeWord(53);
+			c.getOutStream().writeWord(3900);
+			c.getOutStream().writeWord(TotalItems);
+ 			int TotalCount = 0;
+			for (int i = 0; i < o.playerShop.length; i++) {
+				if (o.playerShop[i] > 0) {
+					if (o.playerShopN[i] > 254) {
+						c.getOutStream().writeByte(255); 					
+						c.getOutStream().writeDWord_v2(o.playerShopN[i]);	
+					} else {
+						c.getOutStream().writeByte(o.playerShopN[i]);
+					}
+					c.getOutStream().writeWordBigEndianA((o.playerShop[i]+1));
+					TotalCount++;
+				}
+				if (TotalCount > TotalItems) {
+					break;
+				}
+			}
+			c.getOutStream().endFrameVarSizeWord();
+			c.flushOutStream();	
+		}
+	}
+	
 
 	/**
 	 * buy item from shop (Shop Price)
@@ -144,12 +222,20 @@ public class ShopAssistant {
 				removeSlot));
 		ShopValue *= 1;
 		String ShopAdd = "";
+		if (c.myShopId == 7390 && c.myShopClient != null && !c.myShopClient.playerName.equals(c.playerName)) {
+			c.sendMessage(c.getItems().getItemName(removeId)+": currently costs " + c.myShopClient.playerShopP[removeSlot] + " coins.");
+			return;
+		}else if (c.myShopId == 7390 && c.myShopClient != null && c.myShopClient.playerName.equals(c.playerName)) {
+			c.sendMessage(c.getItems().getItemName(removeId)+": currently costs " + c.playerShopP[removeSlot] + " coins.");
+			return;
+		}
 		if (c.myShopId == 20) {
 			c.sendMessage(c.getItems().getItemName(removeId)
 					+ ": currently costs " + getSpecialItemValue(removeId)
 					+ " FXP");
 			return;
 		}
+
 		if (c.myShopId == 52) {
 			c.sendMessage(c.getItems().getItemName(removeId)
 					+ ": currently costs " + getSpecialItemValue(removeId)
@@ -171,7 +257,7 @@ public class ShopAssistant {
 		if (c.myShopId == 22) {
 			c.sendMessage(c.getItems().getItemName(removeId)
 					+ ": currently costs " + getSpecialItemValue(removeId)
-					+ " Voteing Points.");
+					+ " Voting Points.");
 			return;
 		}
 		if (c.myShopId == 17) {
@@ -472,6 +558,10 @@ public class ShopAssistant {
 			}
 
 		}
+		if (c.myShopId == 7390) {
+			c.sendMessage("You choose your price when using POS.");
+			return;
+		}
 		boolean IsIn = false;
 		if (ShopHandler.ShopSModifier[c.myShopId] > 1) {
 			for (int j = 0; j <= ShopHandler.ShopItemsStandard[c.myShopId]; j++) {
@@ -483,6 +573,7 @@ public class ShopAssistant {
 		} else {
 			IsIn = true;
 		}
+
 		if (IsIn == false) {
 			c.sendMessage("You can't sell "
 					+ c.getItems().getItemName(removeId).toLowerCase()
@@ -514,6 +605,24 @@ public class ShopAssistant {
 						+ c.getItems().getItemName(itemID).toLowerCase() + ".");
 				return false;
 			}
+		}
+		if(c.myShopId == 7390){
+			for (int i : Config.ITEM_TRADEABLE)  {
+				if(i == itemID) {
+					c.sendMessage("You can't sell this item.");
+					return false;
+				}		
+			}
+			if(c.playerName.equals(c.myShopClient.playerName)){
+			c.sellingId = itemID;
+			c.sellingN = amount;
+			c.sellingS = fromSlot;
+			c.xInterfaceId = 7390;
+			c.outStream.createFrame(27);
+			}else{
+				c.sendMessage("You can only sell items on your own store.");
+			}
+			return true;
 		}
 
 		if (amount > 0 && itemID == (c.playerItems[fromSlot] - 1)) {
@@ -604,6 +713,59 @@ public class ShopAssistant {
 		if (System.currentTimeMillis() - buyDelay < 1500) {
 			return false;
 		}
+		if(c.myShopId == 7390 && c.myShopClient != null && !c.myShopClient.properLogout && !c.playerName.equals(c.myShopClient.playerName)){
+			int bought = 0;
+			int price = c.myShopClient.playerShopP[fromSlot];
+			if(amount > c.myShopClient.playerShopN[fromSlot])
+				amount = c.myShopClient.playerShopN[fromSlot];
+			for(int x = 0; x < amount; x++){
+				if(c.getItems().playerHasItem(995, c.myShopClient.playerShopP[fromSlot]) && c.getItems().freeSlots() > 0){
+					c.getItems().deleteItem2(995, c.myShopClient.playerShopP[fromSlot]);
+					c.getItems().addItem(c.myShopClient.playerShop[fromSlot], 1);
+					c.myShopClient.playerShopN[fromSlot]--;
+					c.myShopClient.playerCollect += c.myShopClient.playerShopP[fromSlot];
+					if(c.myShopClient.playerShopN[fromSlot] == 0){
+						c.myShopClient.playerShop[fromSlot] = 0;
+						c.myShopClient.playerShopP[fromSlot] = 0;
+					}
+					bought++;
+				}else{
+					c.sendMessage("Not enought space or money.");
+					break;
+				}
+			}
+			if(bought > 0){
+			resetShop(c.myShopClient);
+			c.getItems().resetItems(3823);;
+			c.sendMessage("You just bought "+bought+" "+c.getItems().getItemName(itemID)+" for "+ (bought*price));
+			c.myShopClient.sendMessage(c.playerName+" has bought "+bought+" "+c.getItems().getItemName(itemID)+" from you!");
+			c.myShopClient.sendMessage("You now have "+c.myShopClient.playerCollect+" coins to collect (::collect)");
+			}
+			return false;
+		}else if(c.myShopId == 7390 && c.myShopClient != null && !c.myShopClient.properLogout && c.playerName.equals(c.myShopClient.playerName)){
+			if(amount > c.myShopClient.playerShopN[fromSlot])
+				amount = c.myShopClient.playerShopN[fromSlot];
+			for(int x = 0; x < amount; x++){
+				if(c.getItems().freeSlots() > 0){
+					c.getItems().addItem(c.myShopClient.playerShop[fromSlot], 1);
+					c.myShopClient.playerShopN[fromSlot]--;
+					if(c.myShopClient.playerShopN[fromSlot] == 0){
+						c.myShopClient.playerShop[fromSlot] = 0;
+						c.myShopClient.playerShopP[fromSlot] = 0;
+						fixShop(c);
+					}
+				}else{
+					c.sendMessage("Not enought space.");
+					break;
+				}
+			}
+			resetShop(c.myShopClient);
+			c.getItems().resetItems(3823);
+			return false;
+		}else if(c.myShopId == 7390){
+			return false;
+		}
+
 
 		if (c.myShopId == 14) {
 			skillBuy(itemID);
