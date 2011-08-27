@@ -1052,6 +1052,7 @@ c.sendMessage("You already have full hp idiot.");
 	c.fishitem = -1;
 		c.clickNpcType = 0;
 		c.npcClickIndex = 0;
+
 		if (c.fishitem != -1) {
                     if (!c.getItems().playerHasItem(c.fishitem)) {
                         c.sendMessage("You need a " + c.getItems().getItemName(c.fishitem) + " to fish for " + c.getItems().getItemName(c.fishies));
@@ -1071,6 +1072,9 @@ c.sendMessage("You already have full hp idiot.");
                     c.fishtimer = c.getFishing().fishtime(c.fishies, c.fishreqt);
                 }
 		switch(npcType) {
+							case 2262:
+				c.getPA().addPouches();
+				break;
 			case 706:
 				c.getDH().sendDialogues(9, npcType);
 			break;
@@ -1484,6 +1488,9 @@ break;
 			case 1282:
 				c.getShops().openShop(7);
 			break;
+						case 2262:
+				c.getPA().repairPouches();
+				break;
 			case 333:
                     c.fishing = true;
                     c.fishXP = 650;

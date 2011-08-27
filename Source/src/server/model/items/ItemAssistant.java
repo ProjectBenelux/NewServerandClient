@@ -505,11 +505,11 @@ return;
             c.setSidebarInterface(0, 425); //war hamer equip.
             c.getPA().sendFrame246(426, 200, Weapon);
             c.getPA().sendFrame126(WeaponName, 428);
-		} else if (WeaponName.endsWith("bow") || WeaponName.endsWith("10") || c.playerEquipment[c.playerWeapon] == 15015 || c.playerEquipment[c.playerWeapon] == 15016 || WeaponName.endsWith("full") || WeaponName.startsWith("seercull")) {
+		} else if (WeaponName.endsWith("bow") || WeaponName.endsWith("10") || c.playerEquipment[c.playerWeapon] == 15015 || c.playerEquipment[c.playerWeapon] == 15241 || c.playerEquipment[c.playerWeapon] == 15016 || WeaponName.endsWith("full") || WeaponName.startsWith("seercull")) {
 			c.setSidebarInterface(0, 1764); //accurate, rapid, longrange
 			c.getPA().sendFrame246(1765, 200, Weapon);
 			c.getPA().sendFrame126(WeaponName, 1767);
-		} else if (WeaponName2.startsWith("dagger") || c.playerEquipment[c.playerWeapon] == 13905 || c.playerEquipment[c.playerWeapon] == 13899 || WeaponName2.contains("Staff of light") || c.playerEquipment[c.playerWeapon] == 18349 || c.playerEquipment[c.playerWeapon] == 10887 || WeaponName2.contains("sword")) {
+		} else if (WeaponName2.startsWith("dagger") || c.playerEquipment[c.playerWeapon] == 13905 || c.playerEquipment[c.playerWeapon] == 13899 || c.playerEquipment[c.playerWeapon] == 18349 || c.playerEquipment[c.playerWeapon] == 10887 || WeaponName2.contains("sword")) {
 			c.setSidebarInterface(0, 2276); //stab, lunge, slash, block
 			c.getPA().sendFrame246(2277, 200, Weapon);
 			c.getPA().sendFrame126(WeaponName, 2279);
@@ -920,6 +920,9 @@ return;
 			case 11283:
 			c.defenceLevelReq = 75;
 			return;
+			case 15241: //hand cannon
+			c.rangeLevelReq = 61;
+break;
 			case 6889:
 			case 6914:
 			c.magicLevelReq = 60;
@@ -1116,6 +1119,7 @@ return;
 			break;
 			
 			case 859: // magic bows
+			case 15241:
 			case 861:
 			case 15701:
 			case 15702:

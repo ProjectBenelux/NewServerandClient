@@ -101,8 +101,66 @@ public class Client extends Player {
 		inStream.currentOffset = 0;
 		buffer = new byte[Config.BUFFER_SIZE];
 	}
-	
 
+	public int cannonTimer = 0;
+	
+public void handCannonDestory() {
+		cannonTimer = 0;
+		int chance = playerLevel[playerFiremaking] * 5 + 25;
+		if(specGfx)
+			chance/=2;
+		if(Misc.random(chance) == 1)
+			EventManager.getSingleton().addEvent(new Event() {
+			public void execute(EventContainer c) {
+			if(cannonTimer <= 0) {
+				gfx0(2140);
+    			playerEquipment[playerWeapon] = -1;
+    			sendMessage("Your hand cannon explodes LMFAO!");
+    			int damage = Misc.random(15) + 1;
+				hitDiff = new Hit(damage, CombatType.RANGE);
+				setHitUpdateRequired(true);
+    			dealDamage(Misc.random(15) + 1);
+    			updateRequired = true;
+				getItems().sendWeapon(playerEquipment[playerWeapon], getItems().getItemName(playerEquipment[playerWeapon]));
+    			getCombat().getPlayerAnimIndex(getItems().getItemName(playerEquipment[playerWeapon]).toLowerCase());
+    			getItems().resetBonus();
+				getItems().getBonus();
+				getItems().writeBonus();
+				getPA().requestUpdates();getOutStream().createFrame(34);
+				getOutStream().writeWord(6);
+				getOutStream().writeWord(1688);
+				getOutStream().writeByte(playerWeapon);
+				getOutStream().writeWord(0);
+				getOutStream().writeByte(0);
+				updateRequired = true; 
+				setAppearanceUpdateRequired(true);
+				c.stop();
+				} else {
+					cannonTimer--;
+				}
+			}
+		}, 500);
+	}
+	public boolean specGfx = false;
+	public void handCannonSpec() {
+		cannonTimer = 0;
+		EventManager.getSingleton().addEvent(new Event() {
+			public void execute(EventContainer c) {
+				cannonTimer--;
+				if(cannonTimer == 0) {
+					gfx0(2141);
+					specGfx = true;
+				}
+				if(cannonTimer == 1) {
+					if (playerIndex > 0)
+						getCombat().fireProjectilePlayer();
+					else if (npcIndex > 0)
+						getCombat().fireProjectileNpc();	
+					c.stop();
+				}
+			}
+		}, 25);
+	}
 	public int getCombatLevel() {
 		int mag = (int) ((getLevelForXP(playerXP[6])) * 1.5);
 		int ran = (int) ((getLevelForXP(playerXP[4])) * 1.5);

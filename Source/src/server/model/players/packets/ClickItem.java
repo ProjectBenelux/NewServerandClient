@@ -14,12 +14,12 @@ public class ClickItem implements PacketType {
 	public void processPacket(Client c, int packetType, int packetSize) {
 		int junk = c.getInStream().readSignedWordBigEndianA();
 		int itemSlot = c.getInStream().readUnsignedWordA();
-		c.getClue().clickCasket(itemId);
+
 		int itemId = c.getInStream().readUnsignedWordBigEndian();
 		if (itemId != c.playerItems[itemSlot] - 1) {
 			return;
 		}
-		
+				c.getClue().clickCasket(itemId);
 		if (itemId == 15055) {
 			if(c.inDuelArena()) {
 				c.sendMessage("Rocktails are disabled in duels.");
@@ -585,19 +585,26 @@ c.getPA().sendFrame126("",6980);
 		//End of artifacts By Hirukos
 		
 		
-		if (itemId >= 5509 && itemId <= 5514) {
-			int pouch = -1;
-			int a = itemId;
-			if (a == 5509)
-				pouch = 0;
-			if (a == 5510)
-				pouch = 1;
-			if (a == 5512)
-				pouch = 2;
-			if (a == 5514)
-				pouch = 3;
-			c.getPA().fillPouch(pouch);
-			return;
+		if (itemId == 5509) {
+			c.getPA().addSmallPouch();
+		}
+		if (itemId == 5510) {
+			c.getPA().addMediumPouch();
+		}
+		if (itemId == 5511) {
+			c.getPA().addMediumPouch();
+		}
+		if (itemId == 5512) {
+			c.getPA().addLargePouch();
+		}
+		if (itemId == 5513) {
+			c.getPA().addLargePouch();
+		}
+		if (itemId == 5514) {
+			c.getPA().addGiantPouch();
+		}
+		if (itemId == 5515) {
+			c.getPA().addGiantPouch();
 		}
 		if (c.getHerblore().isUnidHerb(itemId))
 			c.getHerblore().handleHerbClick(itemId);

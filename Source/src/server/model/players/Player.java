@@ -35,6 +35,17 @@ public abstract class Player {
 	//Summoning
 	//Prayer
 	//Woodcutting
+	//Runecrafting
+	//Runecrafting Pouches
+	public int smallPouchP, smallPouchE;
+	public int mediumPouchP, mediumPouchE;
+	public int largePouchP, largePouchE;
+	public int giantPouchP, giantPouchE;
+	public int mediumPouchDecay, largePouchDecay, giantPouchDecay;
+	//End Runecrafting Pouches
+	//End Runecrafting
+	//End Skills
+	
 
 	//Shops
 	//Player Owned Shops
@@ -238,7 +249,7 @@ public abstract class Player {
 	public static final int[] BOWS = { 18357, 13405, 15701, 15702, 15703, 15704, 9185,
 			13022, 839, 845, 847, 851, 855, 859, 841, 843, 849, 853, 857, 861,
 			4212, 4214, 4215, 11235, 4216, 4217, 4218, 4219, 4220, 4221, 4222,
-			4223, 6724, 4734, 4934, 4935, 4936, 4937 };
+			4223, 6724, 4734, 4934, 4935, 4936, 4937, 15241 };
 
 	public static final int[] Bolts = { 877, 4740, 9139, 9140, 9141, 9142,
 			9143, 9144, 9145, 9236, 9237, 9238, 9239, 9240, 15243, 9241, 9242,
