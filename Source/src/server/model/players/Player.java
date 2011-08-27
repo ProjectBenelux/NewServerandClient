@@ -32,6 +32,12 @@ public abstract class Player {
 	//End Minigames
 	//Skills
 	//Combat
+	//Melee
+	//End Melee
+	//Ranged
+	public boolean rangeEndGFXHeight = false;
+	//End Ranged
+	//End Combat
 	//Summoning
 	//Prayer
 	//Woodcutting

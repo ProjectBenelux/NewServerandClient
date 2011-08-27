@@ -13,6 +13,7 @@ import server.model.npcs.NPCHandler;
 import server.event.EventContainer;
 import server.event.Event;
 import server.model.players.combat.*;
+import server.model.players.combat.ranged.*;
 
 
 public class CombatAssistant{
@@ -82,6 +83,13 @@ public boolean CalculateCriticalChance(Client c) {
 	* Attack Npcs
 	*/
 	public void attackNpc(int i) {	
+	if (c.playerEquipment[c.playerWeapon] == 15241) {
+          c.gfx0(2138);
+          }
+	if(c.playerEquipment[c.playerWeapon] == 15241 && 15243 != c.playerEquipment[c.playerArrows]){
+                c.sendMessage("You can't use Hand Cannon without the shots! (You dumb?)");
+                return;
+	}
 		if (Server.npcHandler.npcs[i] != null) {
 			if (Server.npcHandler.npcs[i].isDead || Server.npcHandler.npcs[i].MaxHP <= 0) {
 				c.usingMagic = false;
@@ -226,6 +234,9 @@ public boolean CalculateCriticalChance(Client c) {
 				}
 				
 				if(!usingCross && !usingArrows && usingBow && (c.playerEquipment[c.playerWeapon] < 4212 || c.playerEquipment[c.playerWeapon] > 4223)) {
+				if(c.playerEquipment[c.playerWeapon] == 15241)
+					c.sendMessage("You have run out of Shots!");
+				else
 					c.sendMessage("You have run out of arrows!");
 					c.stopMovement();
 					c.npcIndex = 0;
@@ -819,9 +830,13 @@ public boolean CalculateCriticalChance(Client c) {
 	**/
 	
 		public void attackPlayer(int i) {
-          if (c.playerEquipment[c.playerWeapon] == 13022) {
-          c.gfx0(2138);
-          }
+if (c.playerEquipment[c.playerWeapon] == 15241) {
+         	c.gfx0(2138);
+          	}
+		if(c.playerEquipment[c.playerWeapon] == 15241 && 15243 != c.playerEquipment[c.playerArrows]){
+                c.sendMessage("You can't use Hand Cannon without the shots! (You dumb?)");
+                return;
+				}
                 if(c.vestaDelay > 0) {
                    resetPlayerAttack();
                    return;
@@ -897,9 +912,9 @@ return;
 					
 		
 
-            for (int u : c.Bolts)  {
+for (int u : c.Bolts)  {
                 for (int y : c.BOWS)  {
-                    if(y == c.playerEquipment[c.playerWeapon] && c.playerEquipment[c.playerWeapon] != 9185 && u == c.playerEquipment[c.playerArrows]){
+                    if(y == c.playerEquipment[c.playerWeapon] && c.playerEquipment[c.playerWeapon] != 9185 && u == c.playerEquipment[c.playerArrows] && c.playerEquipment[c.playerWeapon] != 15241 && u == c.playerEquipment[c.playerArrows]){
                         c.sendMessage("You can only use arrows with this bow.");
                         return;
                     }
@@ -1060,6 +1075,9 @@ return;
 				}
 				
 				if(!usingCross && !usingArrows && usingBow && (c.playerEquipment[c.playerWeapon] < 4212 || c.playerEquipment[c.playerWeapon] > 4223) && !c.usingMagic) {
+				if(c.playerEquipment[c.playerWeapon] == 15241)
+					c.sendMessage("You have run out of Shots!");
+				else
 					c.sendMessage("You have run out of arrows!");
 					c.stopMovement();
 					resetPlayerAttack();
@@ -2610,7 +2628,7 @@ public void applyPlayerMeleeDamage(int i, int damageMask, int damage){
 		}
 	}
 	
-	public void fireProjectilePlayer() {
+public void fireProjectilePlayer() {
 		if(c.oldPlayerIndex > 0) {
 			if(Server.playerHandler.players[c.oldPlayerIndex] != null) {
 				c.projectileStage = 2;
@@ -2620,7 +2638,14 @@ public void applyPlayerMeleeDamage(int i, int damageMask, int damage){
 				int oY = Server.playerHandler.players[c.oldPlayerIndex].getY();
 				int offX = (pY - oY)* -1;
 				int offY = (pX - oX)* -1;	
-				if (!c.msbSpec)
+				if(c.playerEquipment[c.playerWeapon] == 15241) {
+					if(!c.specGfx) {
+						c.gfx0(2138);
+					}
+					c.getPA().createPlayersProjectile2(pX, pY, offX, offY, 50, 55, getRangeProjectileGFX(), 22, 22, c.oldPlayerIndex - 1, getStartDelay(), -1);
+					c.handCannonDestory();	
+					c.specGfx = false;	
+				} else if(!c.msbSpec)
 					c.getPA().createPlayersProjectile(pX, pY, offX, offY, 50, getProjectileSpeed(), getRangeProjectileGFX(), 43, 31, - c.oldPlayerIndex - 1, getStartDelay());
 				else if (c.msbSpec) {
 					c.getPA().createPlayersProjectile2(pX, pY, offX, offY, 50, getProjectileSpeed(), getRangeProjectileGFX(), 43, 31, - c.oldPlayerIndex - 1, getStartDelay(), 10);
@@ -2977,7 +3002,23 @@ public void applyPlayerMeleeDamage(int i, int damageMask, int damage){
 			c.specAccuracy = 1.10;
 			c.specDamage = 1.20;
 			break;
-			
+			case 15241: // hand cannon spec!!
+c.usingBow = true;
+c.rangeItemUsed = c.playerEquipment[c.playerArrows];
+c.getItems().deleteArrow();	
+c.lastWeaponUsed = weapon;
+c.startAnimation(12175);
+c.specAccuracy = 8.5;
+c.specDamage = 2.25;
+c.hitDelay = 5;
+c.attackTimer-= 7;
+c.hitDelay = getHitDelay(c.getItems().getItemName(c.playerEquipment[c.playerWeapon]).toLowerCase());
+if (c.fightMode == 2)
+if (c.playerIndex > 0)
+fireProjectilePlayer();
+else if (c.npcIndex > 0)
+fireProjectileNpc();
+break;
 			case 1215: // dragon daggers
 			case 1231:
 			case 5680:
@@ -3364,6 +3405,7 @@ public void applyPlayerMeleeDamage(int i, int damageMask, int damage){
 			return false;
 			
 			case 4151:
+			case 15241:
 			case 15441:
 			case 15442:
 			case 15443:
@@ -3834,9 +3876,9 @@ public void applyPlayerMeleeDamage(int i, int damageMask, int damage){
 			c.playerWalkIndex = 1663;
 			c.playerRunIndex = 1664;
 			break;
-			case 13022:
+case 15241:
 			c.playerStandIndex = 12155;
-			c.playerWalkIndex = 12155;
+			c.playerWalkIndex = 12154;
 			c.playerRunIndex = 12154;
 			break;
 			case 11694:
@@ -3950,6 +3992,8 @@ public void applyPlayerMeleeDamage(int i, int damageMask, int damage){
 		if (weaponName.contains("Hand cannon"))
 			return 4230;
 		switch(c.playerEquipment[c.playerWeapon]) { // if you don't want to use strings
+		case 15241:
+			return 12153;
 			case 841:
 			case 843:
 			case 845:
@@ -4043,6 +4087,8 @@ public void applyPlayerMeleeDamage(int i, int damageMask, int damage){
 			return 4;//unarmed
 			
 		switch (c.playerEquipment[c.playerWeapon]) {
+		case 15241:
+			return 9;
 	     		case 15038:
 			return 5;
 			case 15701:
@@ -4385,7 +4431,7 @@ public void applyPlayerMeleeDamage(int i, int damageMask, int damage){
 		return c.playerEquipment[c.playerArrows] >= 9130 && c.playerEquipment[c.playerArrows] <= 9145 
 				|| c.playerEquipment[c.playerArrows] >= 9230 && c.playerEquipment[c.playerArrows] <= 9245 && c.playerEquipment[c.playerArrows] <= 9342;
 	}
-	public int rangeMaxHit() {
+	/*public int rangeMaxHit() {
 		int rangeLevel = c.playerLevel[4];
 		double modifier = 1.5;
 		double wtf = c.specDamage;
@@ -4413,68 +4459,39 @@ public void applyPlayerMeleeDamage(int i, int damageMask, int damage){
 			return CalculateCriticalDamage(c, RangedDamage, "Ranged");
 		} else
 			return (int) max;
-	}
+	}*/
 	
-	public int getRangeStr(int i) {
-		if(i == 4214 || i == 4215 || i == 4216 || i == 4217 || i == 4218 || i == 4219 || i == 4220 || i == 4221 || i == 4222 || i == 4223){
-			return 85;
-}
-		switch (i) {
-			//bronze to rune bolts
-			case 877:
-			return 10;
-			case 9140:
-			return 46;
-			case 9141:
-			return 64;
-			case 9142:
-			case 9241:
-			case 9240:
-			return 82;
-			case 9143:
-			case 9243:
-			case 9242:
-			return 100;
-			case 9144:
-			case 9244:
-			case 9245:
-			return 120;
-			//bronze to dragon arrows
-			case 882:
-			return 7;
-			case 884:
-			return 10;
-			case 886:
-			return 16;
-			case 888:
-			return 22;
-			case 890:
-			return 31;
-			case 892:
-			case 4740:
-			return 49;
-			case 11212:
-			return 60;
-			//knifes
-			case 864:
-			return 3;
-			case 863:
-			return 4;
-			case 865:
-			return 7;
-			case 866:
-			return 10;
-			case 867:
-			return 14;
-			case 868:
-			return 24;
-			
+public int getRangeStr(int i) {
+		int str = 0;
+		int[][] data = {
+			{877,  10}, {9140, 46}, {9145, 36}, {9141, 64}, 
+			{9142, 82}, {9143,100}, {9144,115}, {9236, 14}, 
+			{9237, 30}, {9238, 48}, {9239, 66}, {9240, 83}, 
+			{9241, 85}, {9242,103}, {9243,105}, {9244,117}, 
+			{9245,120}, {882, 7}, {884, 10}, {886, 16}, 
+			{888, 22}, {890, 31}, {892, 49},{15243, 60}, {4740, 55}, 
+			{11212, 60}, {806, 1}, {807, 3}, {808, 4}, 
+			{809, 7}, {810,10}, {811,14}, {11230,20},
+			{864, 3},  {863, 4}, {865, 7}, {866, 10}, 
+			{867, 14}, {868, 24}, {825, 6}, {826,10}, 
+			{827,12}, {828,18}, {829,28}, {830,42},
+			{800, 5}, {801, 7}, {802,11}, {803,16}, 
+			{804,23}, {805,36}, {9976, 0}, {9977, 15},
+			{4212, 70}, {4214, 70}, {4215, 70}, {4216, 70},
+			{4217, 70}, {4218, 70}, {4219, 70}, {4220, 70},
+			{4221, 70}, {4222, 70}, {4223, 70}, {6522, 49},
+			{10034, 15},
+		};
+		for(int l = 0; l < data.length; l++) {
+			if(i == data[l][0]) {
+				str = data[l][1];
+			}
 		}
-		return 0;
+		return str;
 	}
-	
-	/*public int rangeMaxHit() {
+	public int rangeMaxHit() {
         int rangehit = 0;
+		double wtf = c.specDamage;
         rangehit += c.playerLevel[4] / 7.5;
         int weapon = c.lastWeaponUsed;
         int Arrows = c.lastArrowUsed;
@@ -4514,6 +4531,8 @@ public void applyPlayerMeleeDamage(int i, int damageMask, int damage){
         } else if (weapon == 9029) {//dragon darts
             rangehit = 8;
             rangehit += c.playerLevel[4] / 10;
+			if(weapon == 15241)
+			rangehit *= 1.35;
         } else if (weapon == 811 || weapon == 868) {//rune darts
             rangehit = 2;
             rangehit += c.playerLevel[4] / 8.5;
@@ -4534,6 +4553,9 @@ public void applyPlayerMeleeDamage(int i, int damageMask, int damage){
             rangehit += c.playerLevel[4] / 11;
         } else if (Arrows == 4740 && weapon == 4734) {//BoltRacks
 			rangehit = 3;
+            rangehit += c.playerLevel[4] / 6;
+			} else if (Arrows == 15243) {//Hand cannon shots
+            rangehit = 4;
             rangehit += c.playerLevel[4] / 6;
         } else if (Arrows == 11212) {//dragon arrows
             rangehit = 4;
@@ -4581,6 +4603,7 @@ public void applyPlayerMeleeDamage(int i, int damageMask, int damage){
         int bonus = 0;
         bonus -= rangehit / 10;
         rangehit += bonus;
+
         if (c.specDamage != 1)
 			rangehit *= c.specDamage;
 		if (rangehit == 0)
@@ -4594,8 +4617,9 @@ public void applyPlayerMeleeDamage(int i, int damageMask, int damage){
 			rangehit *= 1.10;
 		else if (c.prayerActive[19])
 			rangehit *= 1.15;
+			
 		return rangehit;
-    }*/
+    }
 	
 	public boolean properBolts() {
 		return c.playerEquipment[c.playerArrows] >= 9140 && c.playerEquipment[c.playerArrows] <= 9144
@@ -4606,6 +4630,9 @@ public void applyPlayerMeleeDamage(int i, int damageMask, int damage){
 		if (usingBolts())
 			return -1;
 		switch(c.playerEquipment[c.playerWeapon]) {
+		
+			case 15241://hand cannon with Shots
+			return 15243;
 			
 			case 839:
 			case 841:
@@ -4648,269 +4675,22 @@ public void applyPlayerMeleeDamage(int i, int damageMask, int damage){
 	}
 	
 	public int getRangeStartGFX() {
-		switch(c.rangeItemUsed) {
-			            
-			case 863:
-			return 220;
-			case 864:
-			return 219;
-			case 865:
-			return 221;
-			case 866: // knives
-			return 223;
-			case 867:
-			return 224;
-			case 868:
-			return 225;
-			case 869:
-			return 222;
-			
-			case 806:
-			return 232;
-			case 807:
-			return 233;
-			case 808:
-			return 234;
-			case 809: // darts
-			return 235;
-			case 810:
-			return 236;
-			case 811:
-			return 237;
-			
-			case 825:
-			return 206;
-			case 826:
-			return 207;
-			case 827: // javelin
-			return 208;
-			case 828:
-			return 209;
-			case 829:
-			return 210;
-			case 830:
-			return 211;
-
-			case 800:
-			return 42;
-			case 801:
-			return 43;
-			case 802:
-			return 44; // axes
-			case 803:
-			return 45;
-			case 804:
-			return 46;
-			case 805:
-			return 48;
-								
-			case 882:
-			return 19;
-			
-			case 884:
-			return 18;
-			
-			case 886:
-			return 20;
-
-			case 888:
-			return 21;
-			
-			case 890:
-			return 22;
-			
-			case 892:
-			return 24;
-			
-			case 11212:
-			return 26;
-			
-			case 4212:
-			case 4214:
-			case 4215:
-			case 4216:
-			case 4217:
-			case 4218:
-			case 4219:
-			case 4220:
-			case 4221:
-			case 4222:
-			case 4223:
-			return 250;
-			
-		}
-		return -1;
+		return RangeData.getRangeStartGFX(c);
 	}
 		
 	public int getRangeProjectileGFX() {
-		if(c.dbowSpec && c.playerEquipment[c.playerArrows] == 11212) {
-			return 1099;
-		}
-		if(c.bowSpecShot > 0) {
-			switch(c.rangeItemUsed) {
-				default:
-				return 249;
-			}
-		}
-		if (c.playerEquipment[c.playerWeapon] == 9185)
-			return 27;
-		if (c.playerEquipment[c.playerWeapon] == 13879)
-			return 1837;
-		if (c.playerEquipment[c.playerWeapon] == 13957)
-			return 1839;
-		switch(c.rangeItemUsed) {
-			
-			case 863:
-			return 213;
-			case 864:
-			return 212;
-			case 865:
-			return 214;
-			case 866: // knives
-			return 216;
-			case 867:
-			return 217;
-			case 868:
-			return 218;	
-			case 869:
-			return 215;  
-
-			case 806:
-			return 226;
-			case 807:
-			return 227;
-			case 808:
-			return 228;
-			case 809: // darts
-			return 229;
-			case 810:
-			return 230;
-			case 811:
-			return 231;	
-
-			case 825:
-			return 200;
-			case 826:
-			return 201;
-			case 827: // javelin
-			return 202;
-			case 828:
-			return 203;
-			case 829:
-			return 204;
-			case 830:
-			return 205;	
-			
-			case 6522: // Toktz-xil-ul
-			return 442;
-
-			case 800:
-			return 36;
-			case 801:
-			return 35;
-			case 802:
-			return 37; // axes
-			case 803:
-			return 38;
-			case 804:
-			return 39;
-			case 805:
-			return 40;
-
-			case 882:
-			return 10;
-			
-			case 884:
-			return 9;
-			
-			case 886:
-			return 11;
-
-			case 888:
-			return 12;
-			
-			case 890:
-			return 13;
-			
-			case 892:
-			return 15;
-			
-			case 11212:
-			return 17;
-			
-			case 4740: // bolt rack
-			return 27;
-
-
-			
-			case 4212:
-			case 4214:
-			case 4215:
-			case 4216:
-			case 4217:
-			case 4218:
-			case 4219:
-			case 4220:
-			case 4221:
-			case 4222:
-			case 4223:
-			return 249;
-			
-			
-		}
-		return -1;
+		return RangeData.getRangeProjectileGFX(c);
 	}
-	
+
 	public int getProjectileSpeed() {
-		if (c.dbowSpec)
-			return 100;
-		return 70;
+		return RangeData.getProjectileSpeed(c);
 	}
-	
+
 	public int getProjectileShowDelay() {
-		switch(c.playerEquipment[c.playerWeapon]) {
-			case 863:
-			case 864:
-			case 865:
-			case 866: // knives
-			case 867:
-			case 868:
-			case 869:
-			
-			case 806:
-			case 807:
-			case 808:
-			case 809: // darts
-			case 810:
-			case 811:
-			
-			case 825:
-			case 826:
-			case 827: // javelin
-			case 828:
-			case 829:
-			case 830:
-			
-			case 800:
-			case 801:
-			case 802:
-			case 803: // axes
-			case 804:
-			case 805:
-			
-			case 4734:
-            case 9185:
-case 13879:
-case 13957:
-			case 4935:
-			case 4936:
-			case 4937:
-			return 15; 
-			
-		
-			default:
-			return 5;
-		}
+		return RangeData.getProjectileShowDelay(c);
+	}
+		public void appendMutliChinchompa(int npcId) {
+		RangeExtras.appendMutliChinchompa(c, npcId);
 	}
 	
 	/**
@@ -5176,6 +4956,8 @@ case 13957:
 	}
 	
 	public int getStartDelay() {
+	if(c.playerEquipment[c.playerWeapon] == 15241)
+			return 30;
 		switch(c.MAGIC_SPELLS[c.spellId][0]) {
 			case 1539:
 			return 60;
