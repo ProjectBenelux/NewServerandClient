@@ -18,7 +18,6 @@ public class WearItem implements PacketType {
 	@Override
 	public void processPacket(Client c, int packetType, int packetSize) {
 		c.wearId = c.getInStream().readUnsignedWord();
-		boolean torvaChanged = false;
 		c.wearSlot = c.getInStream().readUnsignedWordA();
 		c.interfaceId = c.getInStream().readUnsignedWordA();
 
@@ -64,15 +63,8 @@ public class WearItem implements PacketType {
 		}
 			//c.attackTimer = oldCombatTimer;
 		//c.getItems().wearItem(c.wearId, c.wearSlot, c.getItems().getItemName(c.wearId).toLowerCase());
-				if (c.wearSlot == 0 || c.wearSlot == 4 || c.wearSlot == 7) {
-			if (c.playerEquipment[c.wearSlot] == 13360 || c.playerEquipment[c.wearSlot] == 13358 || c.playerEquipment[c.wearSlot] == 13362)
-				torvaChanged = true;
-		}
 		c.getItems().wearItem(c.wearId, c.wearSlot);
-				if (torvaChanged && c.playerLevel[3] > c.calculateMaxLifePoints()) {
-			c.playerLevel[3] = c.calculateMaxLifePoints();
-			c.getPA().refreshSkill(3);
-		}
+
 
 if(c.playerRights == 3)
 {

@@ -1542,7 +1542,6 @@ break;
 	*Remove Item
 	**/
 	public void removeItem(int wearID, int slot) {
-		boolean torvaChanged = false;
 		if ((c.playerEquipment[slot] == 4335 || c.playerEquipment[slot] == 4355)) {
 			c.sendMessage("You cannot unequip your capes!");
 			return;
@@ -1551,8 +1550,6 @@ break;
 		if (c.getOutStream() != null && c != null) {
 			if (c.playerEquipment[slot] > -1) {
 				if (addItem(c.playerEquipment[slot], c.playerEquipmentN[slot])) {
-					if (c.playerEquipment[slot] == 13360 || c.playerEquipment[slot] == 13358 || c.playerEquipment[slot] == 13362)
-						torvaChanged = true;
 					c.playerEquipment[slot] = -1;
 					c.playerEquipmentN[slot] = 0;
 					sendWeapon(c.playerEquipment[c.playerWeapon], getItemName(c.playerEquipment[c.playerWeapon]));
@@ -1569,10 +1566,7 @@ break;
 					c.flushOutStream();
 					c.updateRequired = true;
 					c.setAppearanceUpdateRequired(true);
-					if (torvaChanged && c.playerLevel[3] > c.calculateMaxLifePoints()) {
-						c.playerLevel[3] = c.calculateMaxLifePoints();
-						c.getPA().refreshSkill(3);
-					}
+
 				}
 			}
 		}

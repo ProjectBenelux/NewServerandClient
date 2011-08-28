@@ -386,19 +386,6 @@ public abstract class Player {
 		int deltaX = x - c.getX(), deltaY = y - c.getY();
 		return deltaX <= 4 && deltaX >= -4 && deltaY <= 4 && deltaY >= -4;
 	}
-		public int calculateMaxLifePoints() {
-		int lifePoints = getLevelForXP(playerXP[3]);//The normal hp
-		int torvaLegs = 13360;//Torva Legs id
-		int torvaBody = 13358;//Torva Body id
-		int torvaHelm = 13362;//Torva Helm id
-		if (playerEquipment[playerLegs] == torvaLegs)
-			lifePoints += 13;
-		if (playerEquipment[playerChest] == torvaBody)
-			lifePoints += 20;
-		if (playerEquipment[playerHat] == torvaHelm)
-			lifePoints += 7;
-		return lifePoints;
-	}
 
 	public boolean isAutoButton(int button) {
 		for (int j = 0; j < autocastIds.length; j += 2) {
@@ -1761,10 +1748,8 @@ public abstract class Player {
 			isDead = true;
 		}
 		str.writeByte(hitDiff.combatType.getAffinity());
-		//str.writeByte(hitFocus);// focus
 		str.writeByteC(playerLevel[3]); // Their current hp, for HP bar
-		//str.writeByte(getLevelForXP(playerXP[3])); // Their max hp, for HP bar
-		str.writeByte(calculateMaxLifePoints()); // Their max hp, for HP bar
+		str.writeByte(getLevelForXP(playerXP[3])); // Their max hp, for HP bar
 		// }
 	}
 
@@ -1785,10 +1770,8 @@ public abstract class Player {
 			isDead = true;
 		}
 		str.writeByte(hitDiff2.combatType.getAffinity());
-		//str.writeByte(hitFocus);// focus
 		str.writeByte(playerLevel[3]); // Their current hp, for HP bar
-		//str.writeByteC(getLevelForXP(playerXP[3])); // Their max hp, for HP bar
-		str.writeByteC(calculateMaxLifePoints()); // Their max hp, for HP bar
+		str.writeByteC(getLevelForXP(playerXP[3])); // Their max hp, for HP bar
 		// }
 	}
 

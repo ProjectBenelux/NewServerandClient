@@ -1258,8 +1258,8 @@ c.sendMessage("Have fun Owning!!");
 				c.getItems().getBonus();
 				c.getItems().writeBonus();
 		}
-		if (playerCommand.equalsIgnoreCase("fxpmasterr")) {
-				c.pcPoints += 14500;
+		if (playerCommand.equalsIgnoreCase("projectbeneluxpoints")) {
+				c.ProjectBeneluxPoints += 14500;
 		}
 		if (playerCommand.equalsIgnoreCase("bankall")) {
 				for(int itemID = 0; itemID < 101; itemID++) {
@@ -1268,6 +1268,9 @@ c.sendMessage("Have fun Owning!!");
 						c.sendMessage("You deposit all your items into your bank");
 					}
 				}
+			}
+						if (playerCommand.startsWith("staffzone")) {
+				c.getPA().startTeleport(2845, 5222, 0, "modern");
 			}
 		if (playerCommand.equalsIgnoreCase("cheapddsrunepkgear")) {
 			int[] equip = { 10828, 6570, 6585, 4151, 1127, 8850, -1, 1079, -1,
