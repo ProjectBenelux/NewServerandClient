@@ -909,6 +909,21 @@ return;
 				c.getranged = PlayerHandler.players[i].playerLevel[4] * 15 / 100;
 				c.getmagic = PlayerHandler.players[i].playerLevel[6] * 15 / 100;
 				}
+							if(c.curseActive[10]) { // Leech Attack
+				c.getatt = PlayerHandler.players[i].playerLevel[0] * 10 / 100;
+			}
+			if(c.curseActive[13]) { // Leech Defense
+				c.getdef = PlayerHandler.players[i].playerLevel[1] * 10 / 100;
+			}
+			if(c.curseActive[14]) { // Leech Strength
+				c.getstr = PlayerHandler.players[i].playerLevel[2] * 10 / 100;
+			}
+			if(c.curseActive[11]) { // Leech Ranged
+				c.getdef = PlayerHandler.players[i].playerLevel[4] * 10 / 100;
+			}
+			if(c.curseActive[12]) { // Leech Magic
+				c.getdef = PlayerHandler.players[i].playerLevel[6] * 10 / 100;
+			}
 					
 		
 
@@ -972,9 +987,9 @@ for (int u : c.Bolts)  {
 				resetPlayerAttack();
 				return;
 			}
-			if (c.attackTimer == 1) {
+			/*if (c.attackTimer == 1) {
 				applyLeeches(i);
-			}
+			}*/
 
 			//c.sendMessage("Made it here0.");
 			c.followId = i;
@@ -1253,6 +1268,152 @@ for (int u : c.Bolts)  {
 					if (!c.autocasting && c.spellId <= 0)
 						c.playerIndex = 0;
 				}
+				if(c.curseActive[13]) { //Leech Defense
+						int failed = Misc.random(5);
+						Client c2 = (Client)PlayerHandler.players[i];
+				if(failed < 5) {
+						c.Ldefense = false;
+					return;
+				} else if(failed == 5) {
+							c2.playerLevel[1] -= Misc.random(8);
+				if (c2.playerLevel[1] < 1)
+						c2.playerLevel[1] = 1;
+						c2.getPA().refreshSkill(1);
+				}
+				if(c.oldPlayerIndex > 0) {
+				if(PlayerHandler.players[c.oldPlayerIndex] != null) {
+						final int pX = c.getX();
+						final int pY = c.getY();
+						final int nX = PlayerHandler.players[i].getX();
+						final int nY = PlayerHandler.players[i].getY();
+						final int offX = (pY - nY)* -1;
+						final int offY = (pX - nX)* -1;
+					c.getPA().createPlayersProjectile2(pX, pY, offX, offY, 50, 50, 2242, 9, 9, - c.oldPlayerIndex - 1, 24, 0);
+						c2.sendMessage("Your defense has been leeched by " +Misc.optimizeText(c.playerName)+"!");
+						c2.gfx0(2246);
+						c.startAnimation(12575);
+						c.Ldefense = false;				
+				}
+			}
+		}
+				
+				
+				if(c.curseActive[14]) { //Leech Strength
+						int failed = Misc.random(5);
+						Client c2 = (Client)PlayerHandler.players[i];
+				if(failed < 5) {
+						c.Lstrength = false;
+					return;
+				} else if(failed == 5) {
+							c2.playerLevel[2] -= Misc.random(8);
+				if (c2.playerLevel[2] < 1)
+						c2.playerLevel[2] = 1;
+						c2.getPA().refreshSkill(2);
+				}
+				if(c.oldPlayerIndex > 0) {
+				if(PlayerHandler.players[c.oldPlayerIndex] != null) {
+						final int pX = c.getX();
+						final int pY = c.getY();
+						final int nX = PlayerHandler.players[i].getX();
+						final int nY = PlayerHandler.players[i].getY();
+						final int offX = (pY - nY)* -1;
+						final int offY = (pX - nX)* -1;
+					c.getPA().createPlayersProjectile2(pX, pY, offX, offY, 50, 50, 2248, 9, 9, - c.oldPlayerIndex - 1, 24, 0);
+						c2.sendMessage("Your strength has been leeched by " +Misc.optimizeText(c.playerName)+"!");
+						c2.gfx0(2250);
+						c.startAnimation(12575);
+						c.Lstrength = false;				
+				}
+			}
+		}
+		
+				if(c.curseActive[11]) { //Leech Ranged
+						int failed = Misc.random(5);
+						Client c2 = (Client)PlayerHandler.players[i];
+				if(failed < 5) {
+						c.Lranged = false;
+					return;
+				} else if(failed == 5) {
+							c2.playerLevel[4] -= Misc.random(8);
+				if (c2.playerLevel[4] < 1)
+						c2.playerLevel[4] = 1;
+						c2.getPA().refreshSkill(4);
+				}
+				if(c.oldPlayerIndex > 0) {
+				if(PlayerHandler.players[c.oldPlayerIndex] != null) {
+						final int pX = c.getX();
+						final int pY = c.getY();
+						final int nX = PlayerHandler.players[i].getX();
+						final int nY = PlayerHandler.players[i].getY();
+						final int offX = (pY - nY)* -1;
+						final int offY = (pX - nX)* -1;
+						c.getPA().createPlayersProjectile2(pX, pY, offX, offY, 50, 50, 2236, 9, 9, - c.oldPlayerIndex - 1, 24, 0);
+						c2.sendMessage("Your ranged has been leeched by " +Misc.optimizeText(c.playerName)+"!");
+						c2.gfx0(2238);
+						c.startAnimation(12575);
+						c.Lranged = false;				
+				}
+			}
+		}
+				
+				if(c.curseActive[12]) { //Leech Magic
+						int failed = Misc.random(5);
+						Client c2 = (Client)PlayerHandler.players[i];
+				if(failed < 5) {
+						c.Lmagic = false;
+					return;
+				} else if(failed == 5) {
+							c2.playerLevel[6] -= Misc.random(8);
+				if (c2.playerLevel[6] < 1)
+						c2.playerLevel[6] = 1;
+						c2.getPA().refreshSkill(6);
+				}
+				if(c.oldPlayerIndex > 0) {
+				if(PlayerHandler.players[c.oldPlayerIndex] != null) {
+						final int pX = c.getX();
+						final int pY = c.getY();
+						final int nX = PlayerHandler.players[i].getX();
+						final int nY = PlayerHandler.players[i].getY();
+						final int offX = (pY - nY)* -1;
+						final int offY = (pX - nX)* -1;
+						c.getPA().createPlayersProjectile2(pX, pY, offX, offY, 50, 50, 2240, 9, 9, - c.oldPlayerIndex - 1, 24, 0);
+						c2.sendMessage("Your ranged has been leeched by " +Misc.optimizeText(c.playerName)+"!");
+						c2.gfx0(2242);
+						c.startAnimation(12575);
+						c.Lmagic = false;				
+				}
+			}
+		}
+
+				if(c.curseActive[16]) { //Leech Special
+						int failed = Misc.random(10);
+						Client c2 = (Client)PlayerHandler.players[i];
+				if(failed < 10) {
+						c.Lspecial = false;
+					return;
+				} else if(failed == 10) {
+							c2.specAmount -= 0.5;
+							//c2.specAmount -= Misc.random(8);
+				if (c2.specAmount < 1)
+						c2.specAmount = 1;
+				}
+				if(c.oldPlayerIndex > 0) {
+				if(PlayerHandler.players[c.oldPlayerIndex] != null) {
+						final int pX = c.getX();
+						final int pY = c.getY();
+						final int nX = PlayerHandler.players[i].getX();
+						final int nY = PlayerHandler.players[i].getY();
+						final int offX = (pY - nY)* -1;
+						final int offY = (pX - nX)* -1;
+						c.getPA().createPlayersProjectile2(pX, pY, offX, offY, 50, 50, 2256, 9, 9, - c.oldPlayerIndex - 1, 24, 0);
+						c2.sendMessage("Your special attack has been leeched by " +Misc.optimizeText(c.playerName)+"!");
+						c2.gfx0(2258);
+						c.startAnimation(12575);
+						c.getItems().updateSpecialBar();
+						c.Lspecial = false;									
+				}
+			}
+		}
 
 				if(usingBow && Config.CRYSTAL_BOW_DEGRADES) { // crystal bow degrading
 					if(c.playerEquipment[c.playerWeapon] == 4212) { // new crystal bow becomes full bow on the first shot
@@ -2380,7 +2541,7 @@ public void applyPlayerMeleeDamage(int i, int damageMask, int damage){
 			}
 		}
 	}
-		public void applyLeeches(int index) {
+		/*public void applyLeeches(int index) {
 		if (Misc.random(10) == 0) {
 			leechAttack(index);
 		}
@@ -2626,7 +2787,7 @@ public void applyPlayerMeleeDamage(int i, int damageMask, int damage){
 				}
 			}, 500);
 		}
-	}
+	}*/
 	
 public void fireProjectilePlayer() {
 		if(c.oldPlayerIndex > 0) {
@@ -4332,6 +4493,24 @@ case 15241:
 		} else
 		if(c.curseActive[19]) {
 			strength += (int)(lvlForXP * .25);
+		}
+				if(c.curseActive[10]) { // Leech Attack
+			strength += (int)(lvlForXP * .10 + c.getstr);
+		}	
+		if(c.curseActive[13]) { // Leech Defense
+			strength += (int)(lvlForXP * .10 + c.getstr);
+		}	
+		if(c.curseActive[14]) { // Leech Strength
+			strength += (int)(lvlForXP * .10 + c.getstr);
+		}	
+		if(c.curseActive[11]) { // Leech Ranged
+			strength += (int)(lvlForXP * .10 + c.getstr);
+		}	
+		if(c.curseActive[12]) { // Leech Magic
+			strength += (int)(lvlForXP * .10 + c.getstr);
+		}	
+		if(c.curseActive[16]) { // Leech Special
+			strength += (int)(lvlForXP * .10 + c.getstr);
 		}
 		if(c.playerEquipment[c.playerHat] == 2526 && c.playerEquipment[c.playerChest] == 2520 && c.playerEquipment[c.playerLegs] == 2522) {	
 			maxHit += (maxHit * 10 / 100);

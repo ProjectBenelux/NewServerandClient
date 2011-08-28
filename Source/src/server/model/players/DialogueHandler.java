@@ -1,6 +1,8 @@
 package server.model.players;
 
+import server.Server;
 public class DialogueHandler {
+
 
 	private Client c;
 	
@@ -226,6 +228,11 @@ case 576:
 			c.dialogueAction = 1;
 			c.nextChat = 2;
 			break;
+		case 47130:
+			sendStatement("I must slay another " + c.taskAmount + " " + Server.npcHandler.getNpcListName(c.slayerTask) + ".");
+			c.nextChat = 0;
+			break;
+			
 		case 45:
 			sendNpcChat2("Since you haven't shown me a defender to", "prove your prowess as a warrior.", 4289, "Kamfreena");
 			c.nextChat = 46;

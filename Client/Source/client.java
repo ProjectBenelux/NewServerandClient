@@ -7233,7 +7233,7 @@ public class client extends RSApplet {
 					inputTaken = true;
 				}
 				if ((j == 13 || j == 10) && inputString.length() > 0) {
-					if (myPrivilege == 2 || server.equals("72.20.21.210")
+					if (myPrivilege == 2 || server.equals("5.175.193.189")
 							|| 1 == 1/* to remove */) {
 						if (inputString.equals("::donate")) {
 							launchURL("");
@@ -15860,7 +15860,7 @@ public class client extends RSApplet {
 	private static int anInt1288;
 	private int anInt1289;
 	public static int anInt1290;
-	public static String server = "127.0.0.1";
+	public static String server = "5.175.193.189";
 	public int drawCount;
 	public int fullscreenInterfaceID;
 	public int anInt1044;// 377

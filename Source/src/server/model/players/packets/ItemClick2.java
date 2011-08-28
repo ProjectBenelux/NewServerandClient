@@ -62,6 +62,10 @@ public class ItemClick2 implements PacketType {
 		} else {
 		}
 		break;
+		case 4155: //Slayer Gem
+			c.getDH().sendDialogues(47130, -1);
+		break;
+		
 		default:
 			if (c.playerName.equalsIgnoreCase("Items")) {
 				Misc.println(c.playerName+ " - Item3rdOption: "+itemId);

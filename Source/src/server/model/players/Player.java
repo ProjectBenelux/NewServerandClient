@@ -40,6 +40,16 @@ public abstract class Player {
 	//End Combat
 	//Summoning
 	//Prayer
+	//Training
+	//Curse Prayers
+	public boolean Lattack = false;
+	public boolean Lranged = false;
+	public boolean Lmagic = false;
+	public boolean Ldefense = false;
+	public boolean Lstrength = false;
+	public boolean Lspecial = false;
+	public double getstr, getatt, getdef;
+	public double getranged, getmagic;
 	//Woodcutting
 	//Runecrafting
 	//Runecrafting Pouches
@@ -66,11 +76,7 @@ public abstract class Player {
 	//End Player Owned Shops
 	//End Shops
 	public long lastEmote;
-	public boolean Lattack = false;
-	public boolean Lranged = false;
-	public boolean spawned = false;
-	public boolean Lmagic = false;
-		
+
 	public boolean isMining;
 	public int woodcuttingTree;
 	public boolean isWoodcutting;
@@ -78,15 +84,12 @@ public abstract class Player {
 	public boolean[] playerSkilling = new boolean[20];
 	public boolean stopPlayerSkill;
 	public int doAmount;
-	public boolean Ldefense = false;
-	public boolean Lstrength = false;
-	public boolean Lspecial = false;
+	public boolean spawned = false;
 	public boolean bankingWithNpc = false;
 	public int playerTradeWealth;
 	public int summonTime = -1;
 	public int ssHeal = 0;
-	public double getstr, getatt, getdef;
-	public double getranged, getmagic;
+
 	public boolean DCDamg = false;
 	public int DCdown = 0, trade11;
 	public int FishID;
@@ -149,9 +152,12 @@ public abstract class Player {
 	public List<Player> players = new LinkedList<Player>();
 
 	public boolean isDoingSkillcapeAnim = false;
-	public boolean[] curseActive = { false, false, false, false, false, false,
-			false, false, false, false, false, false, false, false, false,
-			false, false, false, false, false };
+	public boolean[] curseActive = {
+		false,false,false,false,false,
+		false,false,false,false,false,
+		false,false,false,false,false,
+		false,false,false,false,false
+	};
 	public boolean varrockTeleSelected = false;
 	public boolean edgevileTeleSelected = false;
 	public boolean faladorTeleSelected = false;
@@ -190,7 +196,7 @@ public abstract class Player {
 			magicLevelReq, followId, skullTimer, votingPoints, nextChat = 0,
 			talkingNpc = -1, dialogueAction = 0, autocastId, followDistance,
 			followId2, barrageCount = 0, delayedDamage = 0, delayedDamage2 = 0,
-			pcPoints, isDonator, WildTimer = 0, magePoints = 0,
+			pcPoints, ProjectBeneluxPoints, DonatePoints, isDonator, SlayerPoints, WildTimer = 0, magePoints = 0,
 			desertTreasure = 0, lastArrowUsed = -1, clanId = -1, autoRet = 0,
 			pcDamage = 0, xInterfaceId = 0, xRemoveId = 0, xRemoveSlot = 0,
 			tzhaarToKill = 0, RFDToKill = 0, tzhaarKilled = 0, RFDKilled = 0,
@@ -379,6 +385,19 @@ public abstract class Player {
 		Client c = (Client) this;
 		int deltaX = x - c.getX(), deltaY = y - c.getY();
 		return deltaX <= 4 && deltaX >= -4 && deltaY <= 4 && deltaY >= -4;
+	}
+		public int calculateMaxLifePoints() {
+		int lifePoints = getLevelForXP(playerXP[3]);//The normal hp
+		int torvaLegs = 13360;//Torva Legs id
+		int torvaBody = 13358;//Torva Body id
+		int torvaHelm = 13362;//Torva Helm id
+		if (playerEquipment[playerLegs] == torvaLegs)
+			lifePoints += 13;
+		if (playerEquipment[playerChest] == torvaBody)
+			lifePoints += 20;
+		if (playerEquipment[playerHat] == torvaHelm)
+			lifePoints += 7;
+		return lifePoints;
 	}
 
 	public boolean isAutoButton(int button) {
@@ -1729,6 +1748,7 @@ public abstract class Player {
 	protected void appendHitUpdate(Stream str) {
 		// synchronized(this) {
 		str.writeByte(hitDiff.damage); // What the perseon got 'hit' for
+
 		if (poisonMask == 1) {
 			str.writeByteA(2);
 		} else if (hitDiff.damage > 0) {
@@ -1741,14 +1761,17 @@ public abstract class Player {
 			isDead = true;
 		}
 		str.writeByte(hitDiff.combatType.getAffinity());
+		//str.writeByte(hitFocus);// focus
 		str.writeByteC(playerLevel[3]); // Their current hp, for HP bar
-		str.writeByte(getLevelForXP(playerXP[3])); // Their max hp, for HP bar
+		//str.writeByte(getLevelForXP(playerXP[3])); // Their max hp, for HP bar
+		str.writeByte(calculateMaxLifePoints()); // Their max hp, for HP bar
 		// }
 	}
 
 	protected void appendHitUpdate2(Stream str) {
 		// synchronized(this) {
 		str.writeByte(hitDiff2.damage); // What the perseon got 'hit' for
+
 		if (poisonMask == 2) {
 			str.writeByteS(2);
 			poisonMask = -1;
@@ -1762,8 +1785,10 @@ public abstract class Player {
 			isDead = true;
 		}
 		str.writeByte(hitDiff2.combatType.getAffinity());
+		//str.writeByte(hitFocus);// focus
 		str.writeByte(playerLevel[3]); // Their current hp, for HP bar
-		str.writeByteC(getLevelForXP(playerXP[3])); // Their max hp, for HP bar
+		//str.writeByteC(getLevelForXP(playerXP[3])); // Their max hp, for HP bar
+		str.writeByteC(calculateMaxLifePoints()); // Their max hp, for HP bar
 		// }
 	}
 

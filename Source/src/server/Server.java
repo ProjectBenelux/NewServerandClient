@@ -154,7 +154,7 @@ public class Server {
 		/**
 		 * Server Successfully Loaded 
 		 */
-		System.out.println("Server listening on port 0.0.0.0:" + serverlistenerPort);
+		System.out.println("Server listening on port 5.175.193.189:" + serverlistenerPort);
 		/**
 		 * Main Server Tick
 		 */

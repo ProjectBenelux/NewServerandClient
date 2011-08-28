@@ -1703,7 +1703,7 @@ public class PlayerAssistant {
 			Client o = (Client) Server.playerHandler.players[c.killerId];
 			if (o != null) {
 				if (c.killerId != c.playerId)
-					o.pcPoints += 1;
+					o.pkPoints += 1;
 				c.playerKilled = c.playerId;
 				if (o.duelStatus == 5) {
 					o.duelStatus++;
@@ -2047,8 +2047,8 @@ public class PlayerAssistant {
 				o.getPA().createPlayerHints(10, -1);
 				if (o.duelStatus == 6) {
 					o.getTradeAndDuel().duelVictory();
-					o.pcPoints += 1;
-					o.sendMessage("You have gained 1 FXP Point for winning a duel");
+					o.ProjectBeneluxPoints += 1;
+					o.sendMessage("You have gained 1 Project Benelux Point for winning a duel");
 				}
 			}
 			movePlayer(

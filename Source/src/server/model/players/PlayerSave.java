@@ -145,8 +145,14 @@ public class PlayerSave {
 					} else if (token.equals("teleblock-length")) {
 						p.teleBlockDelay = System.currentTimeMillis();
 						p.teleBlockLength = Integer.parseInt(token2);
-					} else if (token.equals("pc-points")) {
+					} else if (token.equals("Pest-Control-Points")) {
 						p.pcPoints = Integer.parseInt(token2);
+					} else if (token.equals("SlayerPoints")) {
+						p.SlayerPoints = Integer.parseInt(token2);
+					} else if (token.equals("ProjectBenelux-Points")) {
+						p.ProjectBeneluxPoints = Integer.parseInt(token2);
+					} else if (token.equals("Donate-Points")) {
+						p.DonatePoints = Integer.parseInt(token2);
 					} else if (token.equals("gwdelay")) {
 						p.gwdelay = Integer.parseInt(token2);
 					} else if (token.equals("Altar")) {
@@ -484,12 +490,19 @@ public class PlayerSave {
 					Integer.toString(p.barrowsKillCount).length());
 			characterfile.newLine();
 			characterfile.write("teleblock-length = ", 0, 19);
-			characterfile.write(Integer.toString(tbTime), 0,
-					Integer.toString(tbTime).length());
+			characterfile.write(Integer.toString(tbTime), 0, Integer.toString(tbTime).length());
 			characterfile.newLine();
-			characterfile.write("pc-points = ", 0, 12);
-			characterfile.write(Integer.toString(p.pcPoints), 0, Integer
-					.toString(p.pcPoints).length());
+			characterfile.write("Pest-Control-Points = ", 0, 22);
+			characterfile.write(Integer.toString(p.pcPoints), 0, Integer.toString(p.pcPoints).length());
+			characterfile.newLine();
+			characterfile.write("ProjectBenelux-Points = ", 0, 24);
+			characterfile.write(Integer.toString(p.ProjectBeneluxPoints), 0, Integer.toString(p.ProjectBeneluxPoints).length());
+			characterfile.newLine();
+			characterfile.write("Donate-Points = ", 0, 16);
+			characterfile.write(Integer.toString(p.DonatePoints), 0, Integer.toString(p.DonatePoints).length());
+			characterfile.newLine();
+			characterfile.write("Slayer-Points = ", 0, 16);
+			characterfile.write(Integer.toString(p.SlayerPoints), 0, Integer.toString(p.SlayerPoints).length());
 			characterfile.newLine();
 			characterfile.write("gwdelay = ", 0, 10);
 			characterfile.write(Integer.toString(p.gwdelay), 0, Integer

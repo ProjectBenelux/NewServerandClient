@@ -1542,31 +1542,42 @@ break;
 	*Remove Item
 	**/
 	public void removeItem(int wearID, int slot) {
+		boolean torvaChanged = false;
+		if ((c.playerEquipment[slot] == 4335 || c.playerEquipment[slot] == 4355)) {
+			c.sendMessage("You cannot unequip your capes!");
+			return;
+		}
 		synchronized(c) {
-			if(c.getOutStream() != null && c != null) {
-				if(c.playerEquipment[slot] > -1){
-					if(addItem(c.playerEquipment[slot], c.playerEquipmentN[slot])) {
-						c.playerEquipment[slot]=-1;
-						c.playerEquipmentN[slot]=0;
-						sendWeapon(c.playerEquipment[c.playerWeapon], getItemName(c.playerEquipment[c.playerWeapon]));
-						resetBonus();
-						getBonus();
-						writeBonus();
-						c.getCombat().getPlayerAnimIndex(c.getItems().getItemName(c.playerEquipment[c.playerWeapon]).toLowerCase());
-						c.getOutStream().createFrame(34);
-						c.getOutStream().writeWord(6);
-						c.getOutStream().writeWord(1688);
-						c.getOutStream().writeByte(slot);
-						c.getOutStream().writeWord(0);
-						c.getOutStream().writeByte(0);
-						c.flushOutStream();
-						c.updateRequired = true; 
-						c.setAppearanceUpdateRequired(true);
+		if (c.getOutStream() != null && c != null) {
+			if (c.playerEquipment[slot] > -1) {
+				if (addItem(c.playerEquipment[slot], c.playerEquipmentN[slot])) {
+					if (c.playerEquipment[slot] == 13360 || c.playerEquipment[slot] == 13358 || c.playerEquipment[slot] == 13362)
+						torvaChanged = true;
+					c.playerEquipment[slot] = -1;
+					c.playerEquipmentN[slot] = 0;
+					sendWeapon(c.playerEquipment[c.playerWeapon], getItemName(c.playerEquipment[c.playerWeapon]));
+					resetBonus();
+					getBonus();
+					writeBonus();
+					c.getCombat().getPlayerAnimIndex(c.getItems().getItemName(c.playerEquipment[c.playerWeapon]).toLowerCase());
+					c.getOutStream().createFrame(34);
+					c.getOutStream().writeWord(6);
+					c.getOutStream().writeWord(1688);
+					c.getOutStream().writeByte(slot);
+					c.getOutStream().writeWord(0);
+					c.getOutStream().writeByte(0);
+					c.flushOutStream();
+					c.updateRequired = true;
+					c.setAppearanceUpdateRequired(true);
+					if (torvaChanged && c.playerLevel[3] > c.calculateMaxLifePoints()) {
+						c.playerLevel[3] = c.calculateMaxLifePoints();
+						c.getPA().refreshSkill(3);
 					}
 				}
 			}
 		}
 	}
+}
 		
 	/**
 	*BANK

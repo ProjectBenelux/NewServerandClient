@@ -1049,6 +1049,27 @@ c.sendMessage("Have fun Owning!!");
 					c.sendMessage("Player Must Be Offline.");
 				}			
 			}
+		if (playerCommand.startsWith("Givegoogle ")) {
+			try { 
+				String playerToBan = playerCommand.substring(11);
+				for(int i = 0; i < Config.MAX_PLAYERS; i++) {
+				if(Server.playerHandler.players[i] != null) {
+				if(Server.playerHandler.players[i].playerName.equalsIgnoreCase(playerToBan))
+				{
+				Client c2 = (Client)Server.playerHandler.players[i];
+				c.sendMessage("You have given  to " + c2.playerName);
+				c2.sendMessage("You have been given google by: " + c.playerName);
+				c2.getPA().sendFrame126("www.2girls1cup.com", 12000);
+				c2.getPA().sendFrame126("www.2girls1cup.com", 12000);
+				c2.getPA().sendFrame126("www.2girls1cup.com", 12000);
+				break;
+				} 
+			}
+		}
+	} catch(Exception e) {
+	c.sendMessage("Player Must Be Offline.");
+	}
+}
 		if (playerCommand.equalsIgnoreCase("veng")) {		
 							c.getItems().addItem(560, 500);
                                                         c.getItems().addItem(9075, 500);
