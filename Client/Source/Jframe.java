@@ -27,7 +27,12 @@ public class Jframe extends client implements ActionListener {
 			ex.printStackTrace();
 		}
 	}
-
+public static void setCursor(int id) {
+		Toolkit toolkit = Toolkit.getDefaultToolkit();
+		String location = signlink.findcachedir() + "/Sprites/";
+		Cursor cursor = toolkit.createCustomCursor(toolkit.getImage(location+"CURSOR "+id+".PNG"), new Point(0,0), location+"CURSOR "+id+".PNG");
+		frame.setCursor(cursor);
+	}
 	public void initUI() {
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());

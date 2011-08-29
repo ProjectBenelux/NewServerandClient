@@ -154,7 +154,7 @@ public EntityDef method161() {
 				for (int j1 = 0; j1 < j; j1++)
 					anIntArray94[j1] = stream.readUnsignedWord();
 			} else if (i == 2)
-				name = stream.readString().replaceAll(" ", "_");
+				name = stream.readString();
 			else if (i == 3)
 				description = stream.readBytes();
 			else if (i == 12)

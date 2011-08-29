@@ -36,7 +36,7 @@ public class Config {
 	
 	public static final boolean ADMIN_CAN_TRADE = false; //can admins trade?
 	public static final boolean ADMIN_CAN_SELL_ITEMS = false; // can admins sell items?
-	public static final boolean ADMIN_DROP_ITEMS = false; // can admin drop items?
+	public static final boolean ADMIN_DROP_ITEMS = true; // can admin drop items?
 
 	public static final int[] CAT_ITEMS 	= 	{1555,1556,1557,1558,1559,1560,1561,1562,1563,1564,1565,7585,7584,1157,3589,}; // TO MAKE CATS NOT BE ABLE TO DROP WHEN UR HAVEING ONE SUMMONED
 	

@@ -232,7 +232,7 @@ public class ItemAssistant {
 	
 	public void dropAllItems() {
 		Client o = (Client) Server.playerHandler.players[c.killerId];
-if (c.playerRights == 3/*|| c.isInArd() || c.isInFala()*/){
+		if (Config.ADMIN_DROP_ITEMS == false){
 return;
 }
 		for(int i = 0; i < c.playerItems.length; i++) {

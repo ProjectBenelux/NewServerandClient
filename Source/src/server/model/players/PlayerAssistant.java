@@ -113,6 +113,7 @@ public class PlayerAssistant {
 		c.largePouchDecay = 29;
 		c.giantPouchDecay = 10;
 	}
+	
 
 	public void addSmallPouch() {
 		if (c.smallPouchP + c.smallPouchE >= 3)
@@ -476,7 +477,6 @@ public class PlayerAssistant {
 		c.outStream.writeDWord(amount);
 		c.outStream.endFrameVarSizeWord();
 	}
-
 	public int backupItems[] = new int[Config.BANK_SIZE];
 	public int backupItemsN[] = new int[Config.BANK_SIZE];
 
@@ -1976,8 +1976,7 @@ public class PlayerAssistant {
 															// remove items
 			if (!c.inPits && !c.inFightCaves() && !c.inFunPk()) {
 				c.getItems().resetKeepItems();
-				if ((c.playerRights == 2 && Config.ADMIN_DROP_ITEMS)
-						|| c.playerRights != 2) {
+				//if (Config.ADMIN_DROP_ITEMS) {
 					if (!c.isSkulled && !c.isInFala() && !c.isInArd()) { // what
 																			// items
 																			// to
@@ -2025,7 +2024,7 @@ public class PlayerAssistant {
 				Server.fightPits.removePlayerFromPits(c.playerId);
 				c.pitsStatus = 1;
 			}
-		}
+		//}
 		c.getCombat().resetPrayers();
 		for (int i = 0; i < 20; i++) {
 			c.playerLevel[i] = getLevelForXP(c.playerXP[i]);

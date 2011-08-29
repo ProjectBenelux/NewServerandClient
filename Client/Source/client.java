@@ -34,6 +34,10 @@ public class client extends RSApplet {
 			}
 		}
 	}
+	public static String cursorInfo[] = {
+		"Walk-to", "Take", "Attack", "Use", "Open", "Talk-to", "Climb-up", 
+		"Climb-down", "Chop", "Smelt", "Mine"
+	};
 
 	public byte[] GetMap(int Index) {
 		try {
@@ -12356,19 +12360,28 @@ public class client extends RSApplet {
 		}
 	}
 
-	private void drawTooltip() {
-		if (menuActionRow < 2 && itemSelected == 0 && spellSelected == 0)
-			return;
-		String s;
-		if (itemSelected == 1 && menuActionRow < 2)
+private void drawTooltip()
+	{
+		String s = "";
+		if(itemSelected == 1 && menuActionRow < 2)
 			s = "Use " + selectedItemName + " with...";
-		else if (spellSelected == 1 && menuActionRow < 2)
+		else
+		if(spellSelected == 1 && menuActionRow < 2)
 			s = spellTooltip + "...";
 		else
 			s = menuActionName[menuActionRow - 1];
-		if (menuActionRow > 2)
+		if(menuActionRow > 2)
 			s = s + "@whi@ / " + (menuActionRow - 2) + " more options";
 		chatTextDrawingArea.method390(4, 0xffffff, s, loopCycle / 1000, 15);
+		boolean hasFoundCursor = false;
+		for (int i1 = 0; i1 < cursorInfo.length; i1++) {
+			if (menuActionName[menuActionRow - 1].startsWith(cursorInfo[i1])) {
+				Jframe.setCursor(i1);
+				hasFoundCursor = true;
+			}
+		}
+		if (!hasFoundCursor)
+			Jframe.setCursor(0);
 	}
 
 	private void drawMinimap() {
